@@ -10,6 +10,7 @@ namespace SocketServer
         public int id { get; set; }
         public Socket handler { get; set; }
         public SyncObject syncObject { get; set; }
+        private object locker;
 
         public bool Listen()
         {
@@ -27,7 +28,22 @@ namespace SocketServer
                         break;
                     }
                 }
-                data = data.Replace("<EOF>", "");                
+                updateData(data);
+                Send(JsonConvert.SerializeObject(syncObject));
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void updateData(string data)
+        {
+            lock (syncObject)
+            {
+                data = data.Replace("<EOF>", "");
                 var temp = JsonConvert.DeserializeObject<SyncObject>(data);
                 if (id == 0)
                 {
@@ -40,15 +56,10 @@ namespace SocketServer
                     syncObject.ClientID = 2;
                 }
 
-                Send(JsonConvert.SerializeObject(syncObject));
-
-                return true;
-            }
-            catch
-            {
-                return false;
             }
         }
+
+
         public void Send(string message)
         {
             if (handler != null)

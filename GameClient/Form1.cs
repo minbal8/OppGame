@@ -13,9 +13,11 @@ namespace GameClient
     public partial class Form1 : Form
     {
 
-        private static int StepSize = 10;
+        private static int StepSize = 5;
         private int dx = 0;
         private int dy = 0;
+
+        private int FPS = 60;
 
         private Player clientPlayer;
         private Player friendPlayer;
@@ -30,7 +32,7 @@ namespace GameClient
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
 
-            timer1.Interval = 50;
+            timer1.Interval = 1000 / FPS;
             timer1.Start();
         }
 
@@ -145,11 +147,9 @@ namespace GameClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             button1.Enabled = false;
             syncer.Start();
             this.Focus();
-
         }
 
 

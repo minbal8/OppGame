@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GameClient
 {
@@ -16,6 +12,7 @@ namespace GameClient
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public string DebugText { get; set; }
+
 
         GameStateSingleton()
         {

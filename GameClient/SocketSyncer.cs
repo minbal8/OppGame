@@ -51,7 +51,7 @@ namespace GameClient
             while (true)
             {
                 UpdateData();
-                Thread.Sleep(50);
+                Thread.Sleep(1000/60);
             }
         }
 

@@ -70,7 +70,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SocketSyncer.cs" />
-    <Compile Include="Syncer.cs" />
     <Compile Include="SyncObject.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
