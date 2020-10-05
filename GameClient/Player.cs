@@ -5,10 +5,10 @@ namespace GameClient
 {
     public class Player
     {
-        public bool isConnected { get; set; }
         public int PosX { get; set; }
 
         public int PosY { get; set; }
+        public int Animation { get; set; }
 
         private PropertyInfo[] _PropertyInfos = null;
 

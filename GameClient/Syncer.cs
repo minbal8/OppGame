@@ -39,11 +39,6 @@ namespace GameClient
         {
             workerThread.Abort();
 
-
-            item.Player1.isConnected = false;
-            item.Player2.isConnected = false;
-
-
             var myContent = JsonConvert.SerializeObject(item);
             var stringContent = new StringContent(myContent, UnicodeEncoding.UTF8, "application/json");
 
@@ -98,18 +93,7 @@ namespace GameClient
         private async void GetClientID()
         {
             var result = await client.GetStringAsync(_url);
-            SyncObject syncObject = JsonConvert.DeserializeObject<SyncObject>(result);
-
-            if (syncObject.Player1.isConnected == false)
-            {
-                GameStateSingleton.getInstance().ClientID = 1;
-                item.ClientID = 1;
-            }
-            else
-            {
-                GameStateSingleton.getInstance().ClientID = 2;
-                item.ClientID = 2;
-            }
+            SyncObject syncObject = JsonConvert.DeserializeObject<SyncObject>(result);           
         }
     }
 }

@@ -6,10 +6,11 @@ namespace SocketServer
     public class Player
     {
         public int Id { get; set; }
-        public bool isConnected { get; set; }
         public int PosX { get; set; }
 
         public int PosY { get; set; }
+
+        public int Animation { get; set; }
 
         private PropertyInfo[] _PropertyInfos = null;
 

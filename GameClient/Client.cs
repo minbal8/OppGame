@@ -46,6 +46,8 @@ namespace GameClient
 
         public bool Send(string message)
         {
+            if (handler == null)
+                return false;
 
             byte[] msg = Encoding.ASCII.GetBytes(message + "<EOF>");
             try
@@ -56,7 +58,7 @@ namespace GameClient
             catch
             {
                 Console.WriteLine("Disconnected from server");
-                
+
                 handler = null;
                 return Connect();
             }

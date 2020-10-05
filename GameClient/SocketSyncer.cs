@@ -18,15 +18,9 @@ namespace GameClient
         private readonly Client client;
         private static string ipAddress = "192.168.192.142";
         private static int port = 8888;
+        private bool connected = false;
 
         SyncObject item = new SyncObject();
-
-        public void setUrl(string url)
-        {
-            GameStateSingleton.getInstance().ClientID = 1;
-
-            GameStateSingleton.getInstance().DebugText = "" + GameStateSingleton.getInstance().ClientID;
-        }
 
         public SocketSyncer()
         {
@@ -37,21 +31,23 @@ namespace GameClient
 
         public void Start()
         {
-            client.Connect();
             workerThread.Start();
         }
 
         public void Stop()
         {
-
             workerThread.Abort();
-            client.Send("");
-            client.Close();
+            if (connected)
+            {
+                client.Send("");
+                client.Close();
+            }
         }
 
 
         public void StartWorkerThread()
         {
+            connected = client.Connect();
             while (true)
             {
                 UpdateData();
@@ -64,7 +60,7 @@ namespace GameClient
             UpdateSyncObject();
 
             var myContent = JsonConvert.SerializeObject(item);
-            client.Send(myContent);
+            connected = client.Send(myContent);
             GetData();
         }
 
@@ -81,12 +77,9 @@ namespace GameClient
         {
             var result = client.WaitForReply();
             var _item = JsonConvert.DeserializeObject<SyncObject>(result);
-
             GameStateSingleton.getInstance().Player2 = _item.Player2;
             GameStateSingleton.getInstance().Player1 = _item.Player1;
             GameStateSingleton.getInstance().ClientID = _item.ClientID;
-
-
         }
     }
 }

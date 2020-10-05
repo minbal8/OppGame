@@ -13,16 +13,9 @@ namespace GameClient
         private Image RunningR, RunningL, StandR, StandL;
         private Image RunningR2, RunningL2, StandR2, StandL2;
 
-
-
-        private PictureBox player1, player2;
+        private PictureBox player1PictureBox, player2PictureBox;
+        private Player player1, player2;
         private Point lastPos1 = new Point(), lastPos2 = new Point(), current1, current2;
-        private bool LookingRight1, LookingRight2;
-
-        // 0 - runR
-        // 1 - runL
-        // 2 - standR
-        // 3 - standL
 
         private int animation1, lastAnimanion1, animation2, lastAnimanion2;
 
@@ -40,53 +33,76 @@ namespace GameClient
             StandR2 = Image.FromFile("Images/StandR2.gif");
             StandL2 = Image.FromFile("Images/StandL2.gif");
 
-            player1 = p1;
-            player2 = p2;
+            player1PictureBox = p1;
+            player2PictureBox = p2;
+        }
+
+
+        int dx, dy, animation, clientID;
+        bool LookingRight;
+
+
+        private void DecideAnimation()
+        {
+            clientID = GameStateSingleton.getInstance().ClientID;
+            if (clientID == 1)
+            {
+                dx = lastPos1.X - current1.X;
+                dy = lastPos1.Y - current1.Y;
+            }
+            if (clientID == 2)
+            {
+                dx = lastPos2.X - current2.X;
+                dy = lastPos2.Y - current2.Y;
+            }
+
+            if (dx == 0 && dy == 0)
+                if (LookingRight) animation = 3;
+                else animation = 2;
+            if (dy != 0 && LookingRight) animation = 1;
+            if (dy != 0 && !LookingRight) animation = 0;
+            if (dx > 0) { animation = 1; LookingRight = true; }
+            if (dx < 0) { animation = 0; LookingRight = false; }
+
+            if (clientID == 1)
+            {
+                GameStateSingleton.getInstance().Player1.Animation = animation;
+            }
+            if (clientID == 2)
+            {
+                GameStateSingleton.getInstance().Player2.Animation = animation;
+            }
 
         }
 
         public void Update()
         {
-            var p1 = GameStateSingleton.getInstance().Player1;
-            var p2 = GameStateSingleton.getInstance().Player2;
-            current1 = new Point(p1.PosX, p1.PosY);
-            current2 = new Point(p2.PosX, p2.PosY);
 
-            int dx1 = lastPos1.X - current1.X, dy1 = lastPos1.Y - current1.Y;
-            int dx2 = lastPos2.X - current2.X, dy2 = lastPos2.Y - current2.Y;
+            player1 = GameStateSingleton.getInstance().Player1;
+            player2 = GameStateSingleton.getInstance().Player2;
 
-            // player1
-            if (dx1 == 0 && dy1 == 0)
-                if(LookingRight1) animation1 = 3;
-                else animation1 = 2;
-            if (dy1 != 0 && LookingRight1) animation1 = 1;
-            if (dy1 != 0 && !LookingRight1) animation1 = 0;
-            if (dx1 > 0) { animation1 = 1; LookingRight1 = true; }
-            if (dx1 < 0) { animation1 = 0; LookingRight1 = false; }
+            current1 = new Point(player1.PosX, player1.PosY);
+            current2 = new Point(player2.PosX, player2.PosY);
+
+            DecideAnimation();
+
+            animation1 = player1.Animation;
+            animation2 = player2.Animation;
 
             if (animation1 != lastAnimanion1)
             {
-                if (animation1 == 0) player1.Image = RunningR;
-                if (animation1 == 1) player1.Image = RunningL;
-                if (animation1 == 2) player1.Image = StandR;
-                if (animation1 == 3) player1.Image = StandL;
+                if (animation1 == 0) player1PictureBox.Image = RunningR;
+                if (animation1 == 1) player1PictureBox.Image = RunningL;
+                if (animation1 == 2) player1PictureBox.Image = StandR;
+                if (animation1 == 3) player1PictureBox.Image = StandL;
             }
-
-            // player2
-            if (dx2 == 0 && dy2 == 0)
-                if (LookingRight2) animation2 = 3;
-                else animation2 = 2;
-            if (dy2 != 0 && LookingRight2) animation2 = 1;
-            if (dy2 != 0 && !LookingRight2) animation2 = 0;
-            if (dx2 > 0) { animation2 = 1; LookingRight2 = true; }
-            if (dx2 < 0) { animation2 = 0; LookingRight2 = false; }
 
             if (animation2 != lastAnimanion2)
             {
-                if (animation2 == 0) player2.Image = RunningR2;
-                if (animation2 == 1) player2.Image = RunningL2;
-                if (animation2 == 2) player2.Image = StandR2;
-                if (animation2 == 3) player2.Image = StandL2;
+                if (animation2 == 0) player2PictureBox.Image = RunningR2;
+                if (animation2 == 1) player2PictureBox.Image = RunningL2;
+                if (animation2 == 2) player2PictureBox.Image = StandR2;
+                if (animation2 == 3) player2PictureBox.Image = StandL2;
             }
 
             //***********************************************

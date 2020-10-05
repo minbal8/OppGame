@@ -145,12 +145,13 @@ namespace GameClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = textBox1.Text;
-            button1.Enabled = false;
-            textBox1.Enabled = false;
 
-            syncer.setUrl(url);
+            button1.Enabled = false;
             syncer.Start();
+            this.Focus();
+
         }
+
+
     }
 }

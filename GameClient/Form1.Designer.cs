@@ -34,7 +34,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Player1Picture = new System.Windows.Forms.PictureBox();
             this.Player2Picture = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Picture)).BeginInit();
@@ -77,18 +76,11 @@
             this.Player2Picture.TabIndex = 5;
             this.Player2Picture.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(872, 687);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 6;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1106, 684);
+            this.button1.Location = new System.Drawing.Point(872, 687);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "Connect";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,20 +92,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Player2Picture);
             this.Controls.Add(this.Player1Picture);
             this.Controls.Add(this.richTextBox1);
-            this.Name = "Form1";
+            this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Game";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player1Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Picture)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -122,7 +112,6 @@
         private System.Windows.Forms.PictureBox Player1Picture;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox Player2Picture;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
     }
 }
