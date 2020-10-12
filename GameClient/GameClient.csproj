@@ -52,7 +52,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
+    <Compile Include="GeneratedCode\AbstractLevelFactory.cs" />
+    <Compile Include="GeneratedCode\Activation.cs" />
+    <Compile Include="GeneratedCode\Button.cs" />
+    <Compile Include="GeneratedCode\ButtonAlgorithm.cs" />
+    <Compile Include="GeneratedCode\Client.cs" />
+    <Compile Include="GeneratedCode\Factory.cs" />
+    <Compile Include="GeneratedCode\FallTrap.cs" />
+    <Compile Include="GeneratedCode\GameStateSingleton.cs" />
+    <Compile Include="GeneratedCode\LabyrinthBuilder.cs" />
+    <Compile Include="GeneratedCode\LabyrinthConfigurator.cs" />
+    <Compile Include="GeneratedCode\Level.cs" />
+    <Compile Include="GeneratedCode\LogicLevelFactory.cs" />
+    <Compile Include="GeneratedCode\MixedLevel.cs" />
+    <Compile Include="GeneratedCode\PermanentValve.cs" />
+    <Compile Include="GeneratedCode\Player.cs" />
+    <Compile Include="GeneratedCode\SawTrap.cs" />
+    <Compile Include="GeneratedCode\SetValve.cs" />
+    <Compile Include="GeneratedCode\SpeedLevelFactory.cs" />
+    <Compile Include="GeneratedCode\Spikes.cs" />
+    <Compile Include="GeneratedCode\TimedActivation.cs" />
+    <Compile Include="GeneratedCode\TimedValve.cs" />
+    <Compile Include="GeneratedCode\Trap.cs" />
+    <Compile Include="GeneratedCode\TrapFactory.cs" />
+    <Compile Include="GeneratedCode\Valve.cs" />
+    <Compile Include="GeneratedCode\ValveFactory.cs" />
+    <Compile Include="GeneratedCode\Wall.cs" />
+    <Compile Include="OnlineCommunication\Client.cs" />
     <Compile Include="GameStateSingleton.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Form1.cs">
@@ -69,8 +95,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SocketSyncer.cs" />
-    <Compile Include="SyncObject.cs" />
+    <Compile Include="OnlineCommunication\SocketSyncer.cs" />
+    <Compile Include="OnlineCommunication\SyncObject.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,5 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
