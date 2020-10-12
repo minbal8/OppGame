@@ -22,7 +22,7 @@ namespace GameClient
 
 
         public PlayerAnimator(PictureBox p1, PictureBox p2)
-        {
+        {            
             RunningR = Image.FromFile("Images/RunningR.gif");
             RunningL = Image.FromFile("Images/RunningL.gif");
             StandR = Image.FromFile("Images/StandR.gif");
