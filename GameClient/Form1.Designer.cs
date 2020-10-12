@@ -74,7 +74,7 @@
             this.Player2Picture.BackColor = System.Drawing.Color.Transparent;
             this.Player2Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player2Picture.Image")));
             this.Player2Picture.InitialImage = ((System.Drawing.Image)(resources.GetObject("Player2Picture.InitialImage")));
-            this.Player2Picture.Location = new System.Drawing.Point(560, 52);
+            this.Player2Picture.Location = new System.Drawing.Point(740, 23);
             this.Player2Picture.Name = "Player2Picture";
             this.Player2Picture.Size = new System.Drawing.Size(126, 168);
             this.Player2Picture.TabIndex = 5;

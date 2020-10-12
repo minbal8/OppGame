@@ -13,7 +13,7 @@ namespace GameClient
     public partial class Form1 : Form
     {
 
-        private static int StepSize = 5;
+        private static int StepSize = 3;
         private int dx = 0;
         private int dy = 0;
 
@@ -30,6 +30,7 @@ namespace GameClient
         public Form1()
         {
             InitializeComponent();
+            button1.Enabled = false;
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
 
@@ -111,15 +112,10 @@ namespace GameClient
 
         private void WriteDebugData()
         {
-            if (currentLevel != null)
-            {
-                richTextBox1.Text = currentLevel.ToString() + "\n" + currentLevel.name + "\n";
 
-            }
-            else
-            {
-                richTextBox1.Text = GameStateSingleton.getInstance().ToString();
-            }
+            //richTextBox1.Text = dx + "  " + dy + "\n";
+
+            richTextBox1.Text = GameStateSingleton.getInstance().ToString();
         }
 
         private void UpdatePlayerPositions()
@@ -157,6 +153,11 @@ namespace GameClient
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+
             syncer.Start();
             this.Focus();
         }
@@ -165,25 +166,30 @@ namespace GameClient
         {
             AbstractLevelFactory abstractLevel = new EasyLevelFactory();
             currentLevel = abstractLevel.createLogicLevel();
+
+            button1.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new HardLevelFactory();
             currentLevel = abstractLevel.createLogicLevel();
+
+            button1.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new EasyLevelFactory();
             currentLevel = abstractLevel.createSpeedLevel();
-
+            button1.Enabled = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new HardLevelFactory();
             currentLevel = abstractLevel.createSpeedLevel();
+            button1.Enabled = true;
         }
     }
 }
