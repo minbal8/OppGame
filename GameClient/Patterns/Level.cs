@@ -6,13 +6,10 @@ namespace GameClient
 {
 	public class Level
 	{
-		int length;
-		
-		int width;
-		
-		int name;
-		
-		int difficulty;
+
+		public int length { get; set; }
+		public int width { get; set; }
+		public string name { get; set; }
 
 		
 	}

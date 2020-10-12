@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OnlineCommunication\Client.cs" />
-    <Compile Include="GameStateSingleton.cs" />
+    <Compile Include="Patterns\GameStateSingleton.cs" />
     <Compile Include="Patterns\AbstractLevelFactory.cs" />
     <Compile Include="Patterns\Factory.cs" />
     <Compile Include="Patterns\FallTrap.cs" />
@@ -62,11 +62,11 @@
     <Compile Include="Patterns\LogicLevel.cs" />
     <Compile Include="Patterns\SawTrap.cs" />
     <Compile Include="Patterns\SpeedLevel.cs" />
-    <Compile Include="Patterns\SpeedLevelFactory.cs" />
+    <Compile Include="Patterns\HardLevelFactory.cs" />
     <Compile Include="Patterns\Spikes.cs" />
     <Compile Include="Patterns\Trap.cs" />
     <Compile Include="Patterns\TrapFactory.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Patterns\Player.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

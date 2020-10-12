@@ -8,12 +8,16 @@ namespace GameClient
 	{
 		public override Level createLogicLevel()
 		{
-			return new LogicLevel();
+			var temp = new LogicLevel();
+			temp.name = "Easy logic level";
+			return temp;
 		}
 
 		public override Level createSpeedLevel()
 		{
-			return new SpeedLevel();
+			var temp = new SpeedLevel();
+			temp.name = "Easy speed level";
+			return temp;
 		}
 		
 	}

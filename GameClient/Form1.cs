@@ -25,6 +25,8 @@ namespace GameClient
         SocketSyncer syncer = new SocketSyncer();
         PlayerAnimator playerAnimator;
 
+        Level currentLevel;
+
         public Form1()
         {
             InitializeComponent();
@@ -109,7 +111,15 @@ namespace GameClient
 
         private void WriteDebugData()
         {
-            richTextBox1.Text = GameStateSingleton.getInstance().ToString();
+            if (currentLevel != null)
+            {
+                richTextBox1.Text = currentLevel.ToString() + "\n" + currentLevel.name + "\n";
+
+            }
+            else
+            {
+                richTextBox1.Text = GameStateSingleton.getInstance().ToString();
+            }
         }
 
         private void UpdatePlayerPositions()
@@ -154,26 +164,26 @@ namespace GameClient
         private void button2_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new EasyLevelFactory();
-            abstractLevel.createLogicLevel();
+            currentLevel = abstractLevel.createLogicLevel();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new HardLevelFactory();
-            abstractLevel.createLogicLevel();
+            currentLevel = abstractLevel.createLogicLevel();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new EasyLevelFactory();
-            abstractLevel.createSpeedLevel();
+            currentLevel = abstractLevel.createSpeedLevel();
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new HardLevelFactory();
-            abstractLevel.createSpeedLevel();
+            currentLevel = abstractLevel.createSpeedLevel();
         }
     }
 }
