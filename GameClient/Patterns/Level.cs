@@ -2,7 +2,7 @@
  * @(#) Level.cs
  */
 
-namespace ClassDiagram
+namespace GameClient
 {
 	public class Level
 	{
@@ -13,6 +13,7 @@ namespace ClassDiagram
 		int name;
 		
 		int difficulty;
+
 		
 	}
 	

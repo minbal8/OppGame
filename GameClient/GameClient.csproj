@@ -52,34 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\AbstractLevelFactory.cs" />
-    <Compile Include="GeneratedCode\Activation.cs" />
-    <Compile Include="GeneratedCode\Button.cs" />
-    <Compile Include="GeneratedCode\ButtonAlgorithm.cs" />
-    <Compile Include="GeneratedCode\Client.cs" />
-    <Compile Include="GeneratedCode\Factory.cs" />
-    <Compile Include="GeneratedCode\FallTrap.cs" />
-    <Compile Include="GeneratedCode\GameStateSingleton.cs" />
-    <Compile Include="GeneratedCode\LabyrinthBuilder.cs" />
-    <Compile Include="GeneratedCode\LabyrinthConfigurator.cs" />
-    <Compile Include="GeneratedCode\Level.cs" />
-    <Compile Include="GeneratedCode\LogicLevelFactory.cs" />
-    <Compile Include="GeneratedCode\MixedLevel.cs" />
-    <Compile Include="GeneratedCode\PermanentValve.cs" />
-    <Compile Include="GeneratedCode\Player.cs" />
-    <Compile Include="GeneratedCode\SawTrap.cs" />
-    <Compile Include="GeneratedCode\SetValve.cs" />
-    <Compile Include="GeneratedCode\SpeedLevelFactory.cs" />
-    <Compile Include="GeneratedCode\Spikes.cs" />
-    <Compile Include="GeneratedCode\TimedActivation.cs" />
-    <Compile Include="GeneratedCode\TimedValve.cs" />
-    <Compile Include="GeneratedCode\Trap.cs" />
-    <Compile Include="GeneratedCode\TrapFactory.cs" />
-    <Compile Include="GeneratedCode\Valve.cs" />
-    <Compile Include="GeneratedCode\ValveFactory.cs" />
-    <Compile Include="GeneratedCode\Wall.cs" />
     <Compile Include="OnlineCommunication\Client.cs" />
     <Compile Include="GameStateSingleton.cs" />
+    <Compile Include="Patterns\AbstractLevelFactory.cs" />
+    <Compile Include="Patterns\Factory.cs" />
+    <Compile Include="Patterns\FallTrap.cs" />
+    <Compile Include="Patterns\Level.cs" />
+    <Compile Include="Patterns\EasyLevelFactory.cs" />
+    <Compile Include="Patterns\LogicLevel.cs" />
+    <Compile Include="Patterns\SawTrap.cs" />
+    <Compile Include="Patterns\SpeedLevel.cs" />
+    <Compile Include="Patterns\SpeedLevelFactory.cs" />
+    <Compile Include="Patterns\Spikes.cs" />
+    <Compile Include="Patterns\Trap.cs" />
+    <Compile Include="Patterns\TrapFactory.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -119,6 +105,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GeneratedCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocketServer\SocketServer.csproj">
+      <Project>{4aa2a98b-e890-4eb8-a5ab-b5bc80a3c87a}</Project>
+      <Name>SocketServer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

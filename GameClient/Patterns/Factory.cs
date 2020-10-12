@@ -1,6 +1,6 @@
 
 
-namespace ClassDiagram
+namespace GameClient
 {
     public abstract class Factory
     {

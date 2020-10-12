@@ -6,9 +6,9 @@ namespace GameClient
 {
 	public abstract class AbstractLevelFactory
 	{
-		public abstract void createSpeedLevel(  );
+		public abstract Level createSpeedLevel(  );
 		
-		public abstract void createLogicLevel(  );
+		public abstract Level createLogicLevel(  );
 		
 	}
 	

@@ -2,7 +2,7 @@
  * @(#) Trap.cs
  */
 
-namespace ClassDiagram
+namespace GameClient
 {
 	public class Trap
 	{

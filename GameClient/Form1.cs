@@ -25,7 +25,6 @@ namespace GameClient
         SocketSyncer syncer = new SocketSyncer();
         PlayerAnimator playerAnimator;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -152,6 +151,29 @@ namespace GameClient
             this.Focus();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbstractLevelFactory abstractLevel = new EasyLevelFactory();
+            abstractLevel.createLogicLevel();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AbstractLevelFactory abstractLevel = new HardLevelFactory();
+            abstractLevel.createLogicLevel();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbstractLevelFactory abstractLevel = new EasyLevelFactory();
+            abstractLevel.createSpeedLevel();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AbstractLevelFactory abstractLevel = new HardLevelFactory();
+            abstractLevel.createSpeedLevel();
+        }
     }
 }

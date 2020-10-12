@@ -2,7 +2,7 @@
  * @(#) Spikes.cs
  */
 
-namespace ClassDiagram
+namespace GameClient
 {
 	public class Spikes : Trap
 	{

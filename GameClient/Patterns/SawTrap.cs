@@ -2,7 +2,7 @@
  * @(#) SawTrap.cs
  */
 
-namespace ClassDiagram
+namespace GameClient
 {
 	public class SawTrap : Trap
 	{

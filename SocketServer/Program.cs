@@ -8,8 +8,8 @@ namespace SocketServer
 {
     class Program
     {
-        private static string ipAddress = "192.168.192.142";
-        private static int port = 8888;
+        private static string ipAddress = ServerProperties.ip;
+        private static int port = ServerProperties.port;
 
 
         static void Main()

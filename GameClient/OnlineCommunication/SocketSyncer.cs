@@ -10,8 +10,8 @@ namespace GameClient
         private Thread workerThread = null;
 
         private readonly Client client;
-        private static string ipAddress = "192.168.192.142";
-        private static int port = 8888;
+        private static string ipAddress = SocketServer.ServerProperties.ip;
+        private static int port = SocketServer.ServerProperties.port;
         private bool connected = false;
 
         SyncObject item = new SyncObject();
@@ -45,7 +45,7 @@ namespace GameClient
             while (true)
             {
                 UpdateData();
-                Thread.Sleep(1000/60);
+                Thread.Sleep(1000 / 60);
             }
         }
 
