@@ -26,7 +26,6 @@ namespace GameClient
         {
             InitializeComponent();
 
-            button1.Enabled = false;
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
 
@@ -94,7 +93,6 @@ namespace GameClient
 
         private void CheckCollisions()
         {
-            GameStateSingleton.getInstance().DebugText = "";
             if (currentLevel != null)
                 foreach (var item in currentLevel.walls)
                 {
@@ -152,46 +150,29 @@ namespace GameClient
             syncer.Stop();
         }
 
+        private void TestLevelCollisions()
+        {
+            currentLevel = new SpeedLevel();
+            // outer walls
+            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1000, 1)));
+            currentLevel.walls.Add(new Wall(new Point(0, 680), new Size(1000, 1)));
+            currentLevel.walls.Add(new Wall(new Point(1000, 0), new Size(1, 700)));
+            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1, 700)));
+
+
+            currentLevel.walls.Add(new Wall(new Point(300, 0), new Size(10, 100)));
+            currentLevel.walls.Add(new Wall(new Point(700, 0), new Size(10, 100)));
+            currentLevel.walls.Add(new Wall(new Point(0, 300), new Size(100, 10)));
+            currentLevel.walls.Add(new Wall(new Point(0, 500), new Size(100, 10)));
+            currentLevel.DrawWalls(Controls);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            TestLevelCollisions();
             button1.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            button4.Enabled = false;
-            button5.Enabled = false;
-
             syncer.Start();
             Focus();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AbstractLevelFactory abstractLevel = new EasyLevelFactory();
-            currentLevel = abstractLevel.createLogicLevel();
-            button1.Enabled = true;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AbstractLevelFactory abstractLevel = new HardLevelFactory();
-            currentLevel = abstractLevel.createLogicLevel();
-            button1.Enabled = true;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            AbstractLevelFactory abstractLevel = new EasyLevelFactory();
-            currentLevel = abstractLevel.createSpeedLevel();
-            button1.Enabled = true;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            AbstractLevelFactory abstractLevel = new HardLevelFactory();
-            currentLevel = abstractLevel.createSpeedLevel();
-            button1.Enabled = true;
-        }
-
-
     }
 }
