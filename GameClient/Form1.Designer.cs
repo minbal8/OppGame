@@ -50,7 +50,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(872, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(380, 669);
+            this.richTextBox1.Size = new System.Drawing.Size(380, 505);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
@@ -62,27 +62,30 @@
             // 
             this.Player1Picture.BackColor = System.Drawing.Color.Transparent;
             this.Player1Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player1Picture.Image")));
-            this.Player1Picture.InitialImage = ((System.Drawing.Image)(resources.GetObject("Player1Picture.InitialImage")));
+            this.Player1Picture.InitialImage = null;
             this.Player1Picture.Location = new System.Drawing.Point(21, 23);
             this.Player1Picture.Name = "Player1Picture";
-            this.Player1Picture.Size = new System.Drawing.Size(126, 168);
+            this.Player1Picture.Size = new System.Drawing.Size(75, 85);
+            this.Player1Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Picture.TabIndex = 4;
             this.Player1Picture.TabStop = false;
             // 
             // Player2Picture
             // 
             this.Player2Picture.BackColor = System.Drawing.Color.Transparent;
+            this.Player2Picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Player2Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player2Picture.Image")));
-            this.Player2Picture.InitialImage = ((System.Drawing.Image)(resources.GetObject("Player2Picture.InitialImage")));
+            this.Player2Picture.InitialImage = null;
             this.Player2Picture.Location = new System.Drawing.Point(740, 23);
             this.Player2Picture.Name = "Player2Picture";
-            this.Player2Picture.Size = new System.Drawing.Size(126, 168);
+            this.Player2Picture.Size = new System.Drawing.Size(75, 85);
+            this.Player2Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Picture.TabIndex = 5;
             this.Player2Picture.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1158, 726);
+            this.button1.Location = new System.Drawing.Point(1159, 562);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 7;
@@ -92,7 +95,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(872, 687);
+            this.button2.Location = new System.Drawing.Point(873, 523);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 25);
             this.button2.TabIndex = 8;
@@ -102,7 +105,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(872, 724);
+            this.button3.Location = new System.Drawing.Point(873, 560);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 25);
             this.button3.TabIndex = 9;
@@ -112,7 +115,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(998, 687);
+            this.button4.Location = new System.Drawing.Point(999, 523);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 25);
             this.button4.TabIndex = 8;
@@ -122,7 +125,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(998, 724);
+            this.button5.Location = new System.Drawing.Point(999, 560);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(120, 25);
             this.button5.TabIndex = 11;
@@ -134,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 761);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

@@ -1,12 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace GameClient
 {
@@ -14,8 +8,8 @@ namespace GameClient
     {
 
         private static int StepSize = 3;
-        private int dx = 0;
-        private int dy = 0;
+        private int dx = 0, dy = 0;
+        private int ClientID = 0;
 
         private int FPS = 60;
 
@@ -26,10 +20,12 @@ namespace GameClient
         PlayerAnimator playerAnimator;
 
         Level currentLevel;
+        bool up, bottom, left, right;
 
         public Form1()
         {
             InitializeComponent();
+
             button1.Enabled = false;
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
@@ -40,53 +36,34 @@ namespace GameClient
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
-            if (e.KeyCode == Keys.A)
-            {
-                dx = -StepSize;
-            }
-
-            if (e.KeyCode == Keys.D)
-            {
-                dx = StepSize;
-            }
-
-            if (e.KeyCode == Keys.W)
-            {
-                dy = -StepSize;
-            }
-
-            if (e.KeyCode == Keys.S)
-            {
-                dy = StepSize;
-            }
+            if (e.KeyCode == Keys.A) { left = true; }
+            if (e.KeyCode == Keys.D) { right = true; }
+            if (e.KeyCode == Keys.W) { up = true; }
+            if (e.KeyCode == Keys.S) { bottom = true; }
+            e.Handled = true;
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A)
-            {
-                dx = 0;
-            }
+            if (e.KeyCode == Keys.A) { left = false; }
+            if (e.KeyCode == Keys.D) { right = false; }
+            if (e.KeyCode == Keys.W) { up = false; }
+            if (e.KeyCode == Keys.S) { bottom = false; }
+        }
 
-            if (e.KeyCode == Keys.D)
-            {
-                dx = 0;
-            }
-
-            if (e.KeyCode == Keys.W)
-            {
-                dy = 0;
-            }
-
-            if (e.KeyCode == Keys.S)
-            {
-                dy = 0;
-            }
+        private void GetMovementValues()
+        {
+            dx = 0; dy = 0;
+            if (left && !right) { dx = -StepSize; }
+            if (right && !left) { dx = StepSize; }
+            if (up && !bottom) { dy = -StepSize; }
+            if (bottom && !up) { dy = StepSize; }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            GetMovementValues();
+            CheckCollisions();
             UpdatePlayerPositions();
             UpdateGameState();
             playerAnimator.Update();
@@ -112,27 +89,52 @@ namespace GameClient
 
         private void WriteDebugData()
         {
-
-            //richTextBox1.Text = dx + "  " + dy + "\n";
-
             richTextBox1.Text = GameStateSingleton.getInstance().ToString();
+        }
+
+        private void CheckCollisions()
+        {
+            GameStateSingleton.getInstance().DebugText = "";
+            if (currentLevel != null)
+                foreach (var item in currentLevel.walls)
+                {
+
+                    if (ClientID == 1)
+                    {
+                        if (dx < 0 && item.CheckLeft(Player1Picture, StepSize)) { dx = 0; }
+                        if (dx > 0 && item.CheckRight(Player1Picture, StepSize)) { dx = 0; }
+                        if (dy < 0 && item.CheckTop(Player1Picture, StepSize)) { dy = 0; }
+                        if (dy > 0 && item.CheckBottom(Player1Picture, StepSize)) { dy = 0; }
+                    }
+
+                    if (ClientID == 2)
+                    {
+                        if (dx < 0 && item.CheckLeft(Player2Picture, StepSize)) { dx = 0; }
+                        if (dx > 0 && item.CheckRight(Player2Picture, StepSize)) { dx = 0; }
+                        if (dy < 0 && item.CheckTop(Player2Picture, StepSize)) { dy = 0; }
+                        if (dy > 0 && item.CheckBottom(Player2Picture, StepSize)) { dy = 0; }
+                    }
+                }
         }
 
         private void UpdatePlayerPositions()
         {
 
-            if (GameStateSingleton.getInstance().ClientID == 1)
+            if (ClientID == 0)
+                ClientID = GameStateSingleton.getInstance().ClientID;
+            if (ClientID == 1)
             {
                 Point pos = Player1Picture.Location;
                 pos.X += dx;
                 pos.Y += dy;
                 Player1Picture.Location = pos;
 
+
                 friendPlayer = GameStateSingleton.getInstance().Player2;
                 Player2Picture.Location = new Point(friendPlayer.PosX, friendPlayer.PosY);
 
             }
-            if (GameStateSingleton.getInstance().ClientID == 2)
+            if (ClientID == 2)
             {
                 Point pos = Player2Picture.Location;
                 pos.X += dx;
@@ -159,14 +161,13 @@ namespace GameClient
             button5.Enabled = false;
 
             syncer.Start();
-            this.Focus();
+            Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             AbstractLevelFactory abstractLevel = new EasyLevelFactory();
             currentLevel = abstractLevel.createLogicLevel();
-
             button1.Enabled = true;
         }
 
@@ -174,7 +175,6 @@ namespace GameClient
         {
             AbstractLevelFactory abstractLevel = new HardLevelFactory();
             currentLevel = abstractLevel.createLogicLevel();
-
             button1.Enabled = true;
         }
 
@@ -191,5 +191,7 @@ namespace GameClient
             currentLevel = abstractLevel.createSpeedLevel();
             button1.Enabled = true;
         }
+
+
     }
 }

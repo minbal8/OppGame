@@ -21,11 +21,9 @@ namespace SocketServer
         int[] clientsID;
         Thread[] Threads;
 
-
-
         public Server(string ip, int port)
         {
-            ipAddress = IPAddress.Parse(ip);
+            ipAddress = IPAddress.Any;
             localEndPoint = new IPEndPoint(ipAddress, port);
             clientsID = new int[numberOfClients];
             Threads = new Thread[numberOfClients];
