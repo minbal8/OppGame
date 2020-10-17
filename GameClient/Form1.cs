@@ -71,13 +71,13 @@ namespace GameClient
 
         private void UpdateGameState()
         {
-            if (GameStateSingleton.getInstance().ClientID == 1)
+            if (ClientID == 1)
             {
                 clientPlayer.PosX = Player1Picture.Location.X;
                 clientPlayer.PosY = Player1Picture.Location.Y;
                 GameStateSingleton.getInstance().Player1 = clientPlayer;
             }
-            if (GameStateSingleton.getInstance().ClientID == 2)
+            if (ClientID == 2)
             {
                 clientPlayer.PosX = Player2Picture.Location.X;
                 clientPlayer.PosY = Player2Picture.Location.Y;
