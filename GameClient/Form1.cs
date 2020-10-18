@@ -164,6 +164,9 @@ namespace GameClient
             currentLevel.walls.Add(new Wall(new Point(700, 0), new Size(10, 100)));
             currentLevel.walls.Add(new Wall(new Point(0, 300), new Size(100, 10)));
             currentLevel.walls.Add(new Wall(new Point(0, 500), new Size(100, 10)));
+
+
+
             currentLevel.DrawWalls(Controls);
         }
 
