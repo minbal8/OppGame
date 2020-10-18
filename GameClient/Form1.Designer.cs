@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Player1Picture = new System.Windows.Forms.PictureBox();
             this.Player2Picture = new System.Windows.Forms.PictureBox();
@@ -38,17 +37,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player1Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Picture)).BeginInit();
             this.SuspendLayout();
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(1010, 10);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(360, 500);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
             // 
             // timer1
             // 
@@ -72,7 +60,7 @@
             this.Player2Picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Player2Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player2Picture.Image")));
             this.Player2Picture.InitialImage = null;
-            this.Player2Picture.Location = new System.Drawing.Point(740, 23);
+            this.Player2Picture.Location = new System.Drawing.Point(689, 23);
             this.Player2Picture.Name = "Player2Picture";
             this.Player2Picture.Size = new System.Drawing.Size(75, 85);
             this.Player2Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,9 +69,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1159, 562);
+            this.button1.Location = new System.Drawing.Point(1116, 645);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 23);
+            this.button1.Size = new System.Drawing.Size(136, 44);
             this.button1.TabIndex = 7;
             this.button1.Text = "Connect";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,11 +81,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 681);
+            this.ClientSize = new System.Drawing.Size(1274, 721);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Player2Picture);
             this.Controls.Add(this.Player1Picture);
-            this.Controls.Add(this.richTextBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
@@ -111,7 +98,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox Player1Picture;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox Player2Picture;
