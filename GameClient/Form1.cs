@@ -66,7 +66,6 @@ namespace GameClient
             UpdatePlayerPositions();
             UpdateGameState();
             playerAnimator.Update();
-            WriteDebugData();
         }
 
         private void UpdateGameState()
@@ -84,11 +83,6 @@ namespace GameClient
                 GameStateSingleton.getInstance().Player2 = clientPlayer;
             }
 
-        }
-
-        private void WriteDebugData()
-        {
-            richTextBox1.Text = GameStateSingleton.getInstance().ToString();
         }
 
         private void CheckCollisions()
@@ -152,18 +146,13 @@ namespace GameClient
 
         private void TestLevelCollisions()
         {
-            currentLevel = new SpeedLevel();
+            currentLevel = new LogicLevel("HardLogicLevel.txt");
             // outer walls
-            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1000, 1)));
-            currentLevel.walls.Add(new Wall(new Point(0, 680), new Size(1000, 1)));
-            currentLevel.walls.Add(new Wall(new Point(1000, 0), new Size(1, 700)));
-            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1, 700)));
+            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1280, 5)));
+            currentLevel.walls.Add(new Wall(new Point(0, 720), new Size(1280, 5)));
+            currentLevel.walls.Add(new Wall(new Point(1280, 0), new Size(5, 720)));
+            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(5, 720)));
 
-
-            currentLevel.walls.Add(new Wall(new Point(300, 0), new Size(10, 100)));
-            currentLevel.walls.Add(new Wall(new Point(700, 0), new Size(10, 100)));
-            currentLevel.walls.Add(new Wall(new Point(0, 300), new Size(100, 10)));
-            currentLevel.walls.Add(new Wall(new Point(0, 500), new Size(100, 10)));
             currentLevel.DrawWalls(Controls);
         }
 
@@ -171,6 +160,7 @@ namespace GameClient
         {
             TestLevelCollisions();
             button1.Enabled = false;
+            button1.Visible = false;
             syncer.Start();
             Focus();
         }

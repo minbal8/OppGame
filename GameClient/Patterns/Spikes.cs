@@ -6,8 +6,8 @@ namespace GameClient
 {
 	public class Spikes : Trap
 	{
-		int state;
-		
+		public int state { get; set; }
+
 	}
 	
 }

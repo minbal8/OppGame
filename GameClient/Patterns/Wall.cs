@@ -20,6 +20,15 @@ namespace GameClient
             image.BackColor = Color.Black;
         }
 
+        public Wall(Point upperLeft, Point bottomRight)
+        {
+            Size size = new Size(bottomRight.X - upperLeft.X, bottomRight.Y - upperLeft.Y);
+            image = new PictureBox();
+            image.Location = upperLeft;
+            image.Size = size;
+            image.BackColor = Color.Black;
+        }
+
         public bool CheckCollision(PictureBox player)
         {
             return CheckCollision(player.Location, player.Size);

@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OnlineCommunication\Client.cs" />
+    <Compile Include="Patterns\ButtonAlgorithm.cs" />
+    <Compile Include="Patterns\Button.cs" />
+    <Compile Include="Patterns\CloseActivation.cs" />
     <Compile Include="Patterns\GameStateSingleton.cs" />
     <Compile Include="Patterns\AbstractLevelFactory.cs" />
     <Compile Include="Patterns\Factory.cs" />
@@ -60,10 +63,12 @@
     <Compile Include="Patterns\Level.cs" />
     <Compile Include="Patterns\EasyLevelFactory.cs" />
     <Compile Include="Patterns\LogicLevel.cs" />
+    <Compile Include="Patterns\OpenActivation.cs" />
     <Compile Include="Patterns\SawTrap.cs" />
     <Compile Include="Patterns\SpeedLevel.cs" />
     <Compile Include="Patterns\HardLevelFactory.cs" />
     <Compile Include="Patterns\Spikes.cs" />
+    <Compile Include="Patterns\TimedActivation.cs" />
     <Compile Include="Patterns\Trap.cs" />
     <Compile Include="Patterns\TrapFactory.cs" />
     <Compile Include="Patterns\Player.cs" />
@@ -73,6 +78,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patterns\Valve.cs" />
     <Compile Include="Patterns\Wall.cs" />
     <Compile Include="PlayerAnimator.cs" />
     <Compile Include="Program.cs" />

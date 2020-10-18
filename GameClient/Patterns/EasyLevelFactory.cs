@@ -8,7 +8,7 @@ namespace GameClient
 	{
 		public override Level createLogicLevel()
 		{
-			var temp = new LogicLevel();
+			var temp = new LogicLevel("EasyLogicLevel.txt");
 			temp.name = "Easy logic level";
 			return temp;
 		}
