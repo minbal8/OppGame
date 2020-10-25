@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameClient
 {
@@ -20,8 +16,8 @@ namespace GameClient
                 string[] coords = item.Split(',', ' ');
                 var x1 = int.Parse(coords[0]);
                 var y1 = int.Parse(coords[1]);
-                var x2 = int.Parse(coords[3]);
-                var y2 = int.Parse(coords[4]);
+                var x2 = int.Parse(coords[2]);
+                var y2 = int.Parse(coords[3]);
                 _level.AddWall(new Wall(new Point(x1, y1), new Point(x2, y2)));
             }
         }

@@ -88,25 +88,18 @@ namespace GameClient
         private void CheckCollisions()
         {
             if (currentLevel != null)
-                foreach (var item in currentLevel.walls)
+            {
+                if (ClientID == 1)
                 {
-
-                    if (ClientID == 1)
-                    {
-                        if (dx < 0 && item.CheckLeft(Player1Picture, StepSize)) { dx = 0; }
-                        if (dx > 0 && item.CheckRight(Player1Picture, StepSize)) { dx = 0; }
-                        if (dy < 0 && item.CheckTop(Player1Picture, StepSize)) { dy = 0; }
-                        if (dy > 0 && item.CheckBottom(Player1Picture, StepSize)) { dy = 0; }
-                    }
-
-                    if (ClientID == 2)
-                    {
-                        if (dx < 0 && item.CheckLeft(Player2Picture, StepSize)) { dx = 0; }
-                        if (dx > 0 && item.CheckRight(Player2Picture, StepSize)) { dx = 0; }
-                        if (dy < 0 && item.CheckTop(Player2Picture, StepSize)) { dy = 0; }
-                        if (dy > 0 && item.CheckBottom(Player2Picture, StepSize)) { dy = 0; }
-                    }
+                    dx = currentLevel.CheckHorizontalCollisions(dx, Player1Picture, StepSize);
+                    dy = currentLevel.CheckVerticalCollisions(dy, Player1Picture, StepSize);
                 }
+                if (ClientID == 2)
+                {
+                    dx = currentLevel.CheckHorizontalCollisions(dx, Player2Picture, StepSize);
+                    dy = currentLevel.CheckVerticalCollisions(dy, Player2Picture, StepSize);
+                }
+            }
         }
 
         private void UpdatePlayerPositions()
@@ -149,6 +142,13 @@ namespace GameClient
             AbstractLevelFactory factory = new EasyLevelFactory();
             currentLevel = factory.createSpeedLevel();
             currentLevel.DrawWalls(Controls);
+
+            Button but = new Button(100, 100);
+            Controls.Add(but.image);
+
+
+            Console.WriteLine(MousePosition.X);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
