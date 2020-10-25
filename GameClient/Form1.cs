@@ -146,13 +146,8 @@ namespace GameClient
 
         private void TestLevelCollisions()
         {
-            currentLevel = new LogicLevel("HardLogicLevel.txt");
-            // outer walls
-            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(1280, 5)));
-            currentLevel.walls.Add(new Wall(new Point(0, 720), new Size(1280, 5)));
-            currentLevel.walls.Add(new Wall(new Point(1280, 0), new Size(5, 720)));
-            currentLevel.walls.Add(new Wall(new Point(0, 0), new Size(5, 720)));
-
+            AbstractLevelFactory factory = new EasyLevelFactory();
+            currentLevel = factory.createSpeedLevel();
             currentLevel.DrawWalls(Controls);
         }
 

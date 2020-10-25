@@ -23,6 +23,16 @@ namespace GameClient
             }
         }
 
+        public void AddWall(Wall wall)
+        {
+            walls.Add(wall);
+        }
+
+        public void AddPart()
+        {
+
+        }
+
     }
 
 }

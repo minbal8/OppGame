@@ -14,17 +14,26 @@ namespace GameClient
 
         public Wall(Point location, Size size)
         {
-            image = new PictureBox();
-            image.Location = location;
-            image.Size = size;
-            image.BackColor = Color.Black;
+            CreateImage(location, size);
         }
 
         public Wall(Point upperLeft, Point bottomRight)
         {
             Size size = new Size(bottomRight.X - upperLeft.X, bottomRight.Y - upperLeft.Y);
+            CreateImage(upperLeft, size);
+        }
+
+        public Wall(int x1, int y1, int x2, int y2)
+        {
+            Point loc = new Point(x1, y1);
+            Size size = new Size(x1 - x2, y1 - y2);
+            CreateImage(loc, size);
+        }
+
+        private void CreateImage(Point loc, Size size)
+        {
             image = new PictureBox();
-            image.Location = upperLeft;
+            image.Location = loc;
             image.Size = size;
             image.BackColor = Color.Black;
         }

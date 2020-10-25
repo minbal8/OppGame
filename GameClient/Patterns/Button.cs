@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameClient
 {
@@ -17,6 +13,11 @@ namespace GameClient
         public void SetAlgorithm(ButtonAlgorithm algorithm)
         {
             buttonAlgorithm = algorithm;
+        }
+
+        public void Activate()
+        {
+            buttonAlgorithm.Activate();
         }
 
         public bool CheckIfIsDistance(Point reference, int distance)

@@ -47,7 +47,7 @@
             this.Player1Picture.BackColor = System.Drawing.Color.Transparent;
             this.Player1Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player1Picture.Image")));
             this.Player1Picture.InitialImage = null;
-            this.Player1Picture.Location = new System.Drawing.Point(21, 23);
+            this.Player1Picture.Location = new System.Drawing.Point(22, 5);
             this.Player1Picture.Name = "Player1Picture";
             this.Player1Picture.Size = new System.Drawing.Size(75, 85);
             this.Player1Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -60,7 +60,7 @@
             this.Player2Picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Player2Picture.Image = ((System.Drawing.Image)(resources.GetObject("Player2Picture.Image")));
             this.Player2Picture.InitialImage = null;
-            this.Player2Picture.Location = new System.Drawing.Point(689, 23);
+            this.Player2Picture.Location = new System.Drawing.Point(1188, 5);
             this.Player2Picture.Name = "Player2Picture";
             this.Player2Picture.Size = new System.Drawing.Size(75, 85);
             this.Player2Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

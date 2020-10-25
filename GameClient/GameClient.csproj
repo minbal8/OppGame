@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7D7E7236-6B57-4EE1-BBCA-7494CE33ED81}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>GameClient</RootNamespace>
     <AssemblyName>GameClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -62,11 +62,14 @@
     <Compile Include="Patterns\FallTrap.cs" />
     <Compile Include="Patterns\Level.cs" />
     <Compile Include="Patterns\EasyLevelFactory.cs" />
+    <Compile Include="Patterns\LevelBuilder.cs" />
     <Compile Include="Patterns\LogicLevel.cs" />
+    <Compile Include="Patterns\LogicLevelBuilder.cs" />
     <Compile Include="Patterns\OpenActivation.cs" />
     <Compile Include="Patterns\SawTrap.cs" />
     <Compile Include="Patterns\SpeedLevel.cs" />
     <Compile Include="Patterns\HardLevelFactory.cs" />
+    <Compile Include="Patterns\SpeedLevelBuilder.cs" />
     <Compile Include="Patterns\Spikes.cs" />
     <Compile Include="Patterns\TimedActivation.cs" />
     <Compile Include="Patterns\Trap.cs" />
@@ -147,6 +150,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\wall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Levels\LogicLevel.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Levels\SpeedLevel.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

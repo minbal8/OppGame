@@ -1,21 +1,33 @@
 
 namespace GameClient
 {
-	public class HardLevelFactory : AbstractLevelFactory
-	{
-		public override Level createLogicLevel()
-		{
-			var temp = new LogicLevel("HardLogicLevel.txt");
-			temp.name = "Hard logic level";
-			return temp;
-		}
+    public class HardLevelFactory : AbstractLevelFactory
+    {
+        public override Level createLogicLevel()
+        {
+            Level level = new LogicLevel();
+            LevelBuilder builder = new LogicLevelBuilder(level);
+            builder.BuildOuterWalls();
+            builder.BuildInnerWalls();
+            builder.BuildButtonsAndValves();
+            builder.BuildTraps();
+            builder.BuildStartAndFinish();
 
-		public override Level createSpeedLevel()
-		{
-			var temp = new SpeedLevel();
-			temp.name = "Hard speed level";
-			return temp;
-		}
-	}
-	
+            return level;
+        }
+
+        public override Level createSpeedLevel()
+        {
+            Level level = new SpeedLevel();
+            LevelBuilder builder = new SpeedLevelBuilder(level);
+            builder.BuildOuterWalls();
+            builder.BuildInnerWalls();
+            builder.BuildButtonsAndValves();
+            builder.BuildTraps();
+            builder.BuildStartAndFinish();
+
+            return level;
+        }
+    }
+
 }
