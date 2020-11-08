@@ -19,10 +19,10 @@ namespace GameClient
 
         public void BuildOuterWalls()
         {
-            _level.walls.Add(new Wall(new Point(0, 0), new Size(1280, 5)));
-            _level.walls.Add(new Wall(new Point(0, 720), new Size(1280, 5)));
-            _level.walls.Add(new Wall(new Point(1280, 0), new Size(5, 720)));
-            _level.walls.Add(new Wall(new Point(0, 0), new Size(5, 720)));
+            _level.AddWall(new Wall(new Point(0, 0), new Size(1280, 5)));
+            _level.AddWall(new Wall(new Point(0, 720), new Size(1280, 5)));
+            _level.AddWall(new Wall(new Point(1280, 0), new Size(5, 720)));
+            _level.AddWall(new Wall(new Point(0, 0), new Size(5, 720)));
         }
 
         public abstract void BuildInnerWalls();

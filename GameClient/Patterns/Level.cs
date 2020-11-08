@@ -11,10 +11,10 @@ namespace GameClient
 {
     public class Level
     {
-        public List<Wall> walls = new List<Wall>();
-        public List<Valve> valves = new List<Valve>();
-        public List<Button> buttons = new List<Button>();
-        public List<Trap> traps = new List<Trap>();
+        protected List<Wall> walls = new List<Wall>();
+        protected List<Valve> valves = new List<Valve>();
+        protected List<Button> buttons = new List<Button>();
+        protected List<Trap> traps = new List<Trap>();
 
 
         public int length { get; set; }
