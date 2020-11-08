@@ -140,7 +140,7 @@ namespace GameClient
         private void TestLevelCollisions()
         {
             AbstractLevelFactory factory = new EasyLevelFactory();
-            currentLevel = factory.createSpeedLevel();
+            currentLevel = factory.createLogicLevel();
             currentLevel.DrawWalls(Controls);
 
             Button but = new Button(100, 100);
