@@ -8,6 +8,6 @@ namespace GameClient
 {
     public abstract class ButtonAlgorithm
     {
-        public abstract void Activate();
+        public abstract int Activate();
     }
 }

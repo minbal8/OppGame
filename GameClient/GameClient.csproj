@@ -65,12 +65,14 @@
     <Compile Include="Patterns\LevelBuilder.cs" />
     <Compile Include="Patterns\LogicLevel.cs" />
     <Compile Include="Patterns\LogicLevelBuilder.cs" />
+    <Compile Include="Patterns\Observer.cs" />
     <Compile Include="Patterns\OpenActivation.cs" />
     <Compile Include="Patterns\SawTrap.cs" />
     <Compile Include="Patterns\SpeedLevel.cs" />
     <Compile Include="Patterns\HardLevelFactory.cs" />
     <Compile Include="Patterns\SpeedLevelBuilder.cs" />
     <Compile Include="Patterns\Spikes.cs" />
+    <Compile Include="Patterns\Subject.cs" />
     <Compile Include="Patterns\TimedActivation.cs" />
     <Compile Include="Patterns\Trap.cs" />
     <Compile Include="Patterns\TrapFactory.cs" />
