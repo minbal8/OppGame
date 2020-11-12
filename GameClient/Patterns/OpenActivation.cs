@@ -4,9 +4,10 @@ namespace GameClient
 {
     class OpenActivation : ButtonAlgorithm
     {
-        public override void Activate()
+        public override int Activate()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Opened");
+            return 1;
         }
     }
 }

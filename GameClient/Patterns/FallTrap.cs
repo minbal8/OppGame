@@ -6,8 +6,7 @@ namespace GameClient
 {
 	public class FallTrap : Trap
 	{
-		int state;
-		
+		int state;		
 	}
 	
 }

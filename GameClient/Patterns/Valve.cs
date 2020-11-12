@@ -3,11 +3,13 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    public class Valve
+    public class Valve : Observer
     {
         public PictureBox image { get; set; }
         public int CoordinateX { get; set; }
         public int CoordinateY { get; set; }
+
+        private int ObserverState { get; set; }
 
         public Valve(int x, int y)
         {
@@ -21,17 +23,39 @@ namespace GameClient
             image = new PictureBox();
             image.Location = loc;
             image.Size = size;
-            image.BackColor = Color.Red;
+            image.BackColor = Color.Black;
         }
 
-        public void Open()
+        public override void Update()
         {
+            ObserverState = _subject.GetState();
+            SetValveImage();
+        }
+
+        private void SetValveImage()
+        {
+            switch (ObserverState)
+            {
+                case 0:
+                    Close();
+                    break;
+                case 1:
+                    Open();
+                    break;
+                default:
+                    break;
+            }
 
         }
 
-        public void Close()
+        private void Open()
         {
+            image.Size = new Size(200, 200);
+        }
 
+        private void Close()
+        {
+            image.Size = new Size(0, 0);
         }
     }
 }

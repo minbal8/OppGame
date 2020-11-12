@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    public class Button
+    public class Button : Subject
     {
         public PictureBox image { get; set; }
         public int CoordinateX { get; set; }
@@ -12,12 +12,14 @@ namespace GameClient
 
         ButtonAlgorithm buttonAlgorithm;
 
+        private int State { get; set; }
+
         public Button(int x, int y)
         {
 
             CoordinateX = x;
             CoordinateY = y;
-            CreateImage(new Point(x, y), new Size(10, 10));
+            CreateImage(new Point(x, y), new Size(20, 20));
 
         }
 
@@ -36,7 +38,17 @@ namespace GameClient
 
         public void Activate()
         {
-            buttonAlgorithm.Activate();
+            State = buttonAlgorithm.Activate();
+            if (State == 0) { SetAlgorithm(new OpenActivation()); }
+            if (State == 1) { SetAlgorithm(new CloseActivation()); }
+            Notify();
+        }
+
+        public bool CheckCollision(Point location, Size size)
+        {
+            int right = location.X + size.Width, left = location.X, top = location.Y, bottom = location.Y + size.Height;
+            return right > image.Left && image.Right > left &&
+                 bottom > image.Top && image.Bottom > top;
         }
 
         public bool CheckIfIsDistance(Point reference, int distance)
@@ -44,5 +56,9 @@ namespace GameClient
             return (Math.Pow(CoordinateX - reference.X, 2) + Math.Pow(CoordinateY - reference.Y, 2)) < (distance * distance);
         }
 
+        public override int GetState()
+        {
+            return State;
+        }
     }
 }

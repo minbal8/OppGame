@@ -8,9 +8,9 @@ namespace GameClient
 {
     class TimedActivation : ButtonAlgorithm
     {
-        public override void Activate()
+        public override int Activate()
         {
-            throw new NotImplementedException();
+            return 1;
         }
     }
 }

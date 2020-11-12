@@ -8,9 +8,10 @@ namespace GameClient
 {
     class CloseActivation : ButtonAlgorithm
     {
-        public override void Activate()
+        public override int Activate()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Closed");
+            return 0;
         }
     }
 }

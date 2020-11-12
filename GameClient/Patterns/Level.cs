@@ -11,15 +11,13 @@ namespace GameClient
 {
     public class Level
     {
-        public List<Wall> walls = new List<Wall>();
-        public List<Valve> valves = new List<Valve>();
-        public List<Button> buttons = new List<Button>();
-        public List<Trap> traps = new List<Trap>();
-
+        protected List<Wall> walls = new List<Wall>();
+        protected List<Valve> valves = new List<Valve>();
+        protected List<Button> buttons = new List<Button>();
+        protected List<Trap> traps = new List<Trap>();
 
         public int length { get; set; }
         public int width { get; set; }
-        public string name { get; set; }
 
         public void DrawWalls(ControlCollection controls)
         {
@@ -27,6 +25,22 @@ namespace GameClient
             {
                 controls.Add(item.image);
             }
+
+            TestCase(controls);
+        }
+
+        private void TestCase(ControlCollection controls)
+        {
+            Button but = new Button(100, 100);
+            but.SetAlgorithm(new OpenActivation());
+
+            Valve v = new Valve(200,200);
+            but.Attach(v);
+
+
+            controls.Add(but.image);
+            controls.Add(v.image);
+            buttons.Add(but);
         }
 
         public int CheckHorizontalCollisions(int dx, PictureBox player, int stepSize)
@@ -47,6 +61,17 @@ namespace GameClient
                 if (dy > 0 && item.CheckBottom(player, stepSize)) { dy = 0; }
             }
             return dy;
+        }
+
+        public void PressButton(PictureBox player)
+        {
+            foreach (var button in buttons)
+            {
+                if (button.CheckCollision(player.Location, player.Size))
+                {
+                    button.Activate();
+                }
+            }
         }
 
         public void AddWall(Wall wall)

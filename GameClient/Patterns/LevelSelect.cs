@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameClient
+namespace GameClient.Patterns
 {
-    public abstract class ButtonAlgorithm
+    class LevelSelect
     {
-        public abstract int Activate();
+        public void SelectLevel(int levelId)
+        {
+
+        }
     }
 }

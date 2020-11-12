@@ -11,7 +11,8 @@ namespace GameClient
         private int dx = 0, dy = 0;
         private int ClientID = 0;
 
-        private int FPS = 60;
+        private static int FPS = 60;
+        private float DeltaTime = (1 / (float)FPS);
 
         private Player clientPlayer;
         private Player friendPlayer;
@@ -20,7 +21,9 @@ namespace GameClient
         PlayerAnimator playerAnimator;
 
         Level currentLevel;
-        bool up, bottom, left, right;
+        bool PressedUp, PressedBottom, PressedLeft, PressedRight, PressedE;
+
+        private float ActivationTimerCount = 1;
 
         public Form1()
         {
@@ -29,34 +32,36 @@ namespace GameClient
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
 
-            timer1.Interval = 1000 / FPS;
+            timer1.Interval = 1000 / 60;
             timer1.Start();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A) { left = true; }
-            if (e.KeyCode == Keys.D) { right = true; }
-            if (e.KeyCode == Keys.W) { up = true; }
-            if (e.KeyCode == Keys.S) { bottom = true; }
+            if (e.KeyCode == Keys.A) { PressedLeft = true; }
+            if (e.KeyCode == Keys.D) { PressedRight = true; }
+            if (e.KeyCode == Keys.W) { PressedUp = true; }
+            if (e.KeyCode == Keys.S) { PressedBottom = true; }
+            if (e.KeyCode == Keys.E) { PressedE = true; }
             e.Handled = true;
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A) { left = false; }
-            if (e.KeyCode == Keys.D) { right = false; }
-            if (e.KeyCode == Keys.W) { up = false; }
-            if (e.KeyCode == Keys.S) { bottom = false; }
+            if (e.KeyCode == Keys.A) { PressedLeft = false; }
+            if (e.KeyCode == Keys.D) { PressedRight = false; }
+            if (e.KeyCode == Keys.W) { PressedUp = false; }
+            if (e.KeyCode == Keys.S) { PressedBottom = false; }
+            if (e.KeyCode == Keys.E) { PressedE = false; }
         }
 
         private void GetMovementValues()
         {
             dx = 0; dy = 0;
-            if (left && !right) { dx = -StepSize; }
-            if (right && !left) { dx = StepSize; }
-            if (up && !bottom) { dy = -StepSize; }
-            if (bottom && !up) { dy = StepSize; }
+            if (PressedLeft && !PressedRight) { dx = -StepSize; }
+            if (PressedRight && !PressedLeft) { dx = StepSize; }
+            if (PressedUp && !PressedBottom) { dy = -StepSize; }
+            if (PressedBottom && !PressedUp) { dy = StepSize; }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -70,6 +75,11 @@ namespace GameClient
 
         private void UpdateGameState()
         {
+            if (ActivationTimerCount > 0)
+            {
+                ActivationTimerCount -= DeltaTime;
+            }
+
             if (ClientID == 1)
             {
                 clientPlayer.PosX = Player1Picture.Location.X;
@@ -91,14 +101,24 @@ namespace GameClient
             {
                 if (ClientID == 1)
                 {
-                    dx = currentLevel.CheckHorizontalCollisions(dx, Player1Picture, StepSize);
-                    dy = currentLevel.CheckVerticalCollisions(dy, Player1Picture, StepSize);
+                    CheckPlayerCollisions(Player1Picture);
                 }
                 if (ClientID == 2)
                 {
-                    dx = currentLevel.CheckHorizontalCollisions(dx, Player2Picture, StepSize);
-                    dy = currentLevel.CheckVerticalCollisions(dy, Player2Picture, StepSize);
+                    CheckPlayerCollisions(Player2Picture);
                 }
+            }
+        }
+
+        private void CheckPlayerCollisions(PictureBox playerPicture)
+        {
+            dx = currentLevel.CheckHorizontalCollisions(dx, playerPicture, StepSize);
+            dy = currentLevel.CheckVerticalCollisions(dy, playerPicture, StepSize);
+
+            if (PressedE && ActivationTimerCount <= 0)
+            {
+                ActivationTimerCount = 0.3f;
+                currentLevel.PressButton(playerPicture);
             }
         }
 
@@ -142,13 +162,6 @@ namespace GameClient
             AbstractLevelFactory factory = new EasyLevelFactory();
             currentLevel = factory.createLogicLevel();
             currentLevel.DrawWalls(Controls);
-
-            Button but = new Button(100, 100);
-            Controls.Add(but.image);
-
-
-            Console.WriteLine(MousePosition.X);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
