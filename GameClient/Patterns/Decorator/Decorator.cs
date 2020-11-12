@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    class Decorator : Skin
+    abstract class Decorator : Skin
     {
         protected Skin skin;
 
@@ -28,12 +28,12 @@ namespace GameClient
             image.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        public void Skin()
-        {
-            if (skin != null)
-            {
-                skin.Skin();
-            }
-        }
+        public abstract void Skin();
+        //{
+        //    if (skin != null)
+        //    {
+        //        skin.Skin();
+        //    }
+        //}
     }
 }

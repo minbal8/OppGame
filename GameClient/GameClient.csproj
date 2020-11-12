@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OnlineCommunication\Client.cs" />
+    <Compile Include="Patterns\Bridge\Blue.cs" />
+    <Compile Include="Patterns\Bridge\Hat.cs" />
+    <Compile Include="Patterns\Bridge\ItemColor.cs" />
+    <Compile Include="Patterns\Bridge\Red.cs" />
+    <Compile Include="Patterns\Bridge\Scarf_tmp.cs" />
+    <Compile Include="Patterns\Bridge\Wearable.cs" />
     <Compile Include="Patterns\Command\StandRightCommand.cs" />
     <Compile Include="Patterns\Command\StandLeftCommand.cs" />
     <Compile Include="Patterns\Command\RunRightCommand.cs" />
