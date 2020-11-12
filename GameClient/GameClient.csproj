@@ -58,6 +58,7 @@
     <Compile Include="Patterns\ButtonAlgorithm.cs" />
     <Compile Include="Patterns\Button.cs" />
     <Compile Include="Patterns\CloseActivation.cs" />
+    <Compile Include="Patterns\Command.cs" />
     <Compile Include="Patterns\Decorator.cs" />
     <Compile Include="Patterns\DefaultSkin.cs" />
     <Compile Include="Patterns\GameStateSingleton.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Patterns\RedHat.cs" />
     <Compile Include="Patterns\SawTrap.cs" />
     <Compile Include="Patterns\Scarf.cs" />
+    <Compile Include="Patterns\SimpleAnimator.cs" />
     <Compile Include="Patterns\Skin.cs" />
     <Compile Include="Patterns\SpeedLevel.cs" />
     <Compile Include="Patterns\HardLevelFactory.cs" />
