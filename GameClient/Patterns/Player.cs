@@ -1,4 +1,9 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Reflection;
 using System.Text;
 
 namespace GameClient
@@ -9,6 +14,8 @@ namespace GameClient
 
         public int PosY { get; set; }
         public int Animation { get; set; }
+
+
 
         private PropertyInfo[] _PropertyInfos = null;
 
@@ -27,6 +34,8 @@ namespace GameClient
 
             return sb.ToString();
         }
+
+
     }
 
 

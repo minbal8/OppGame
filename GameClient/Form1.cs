@@ -171,6 +171,17 @@ namespace GameClient
             button1.Visible = false;
             syncer.Start();
             Focus();
+            decoratorTest();
+        }
+
+        private void decoratorTest()
+        {
+            DefaultSkin ds = new DefaultSkin();
+            RedHat rh = new RedHat();
+            BlueHat bh = new BlueHat();
+
+            rh.setSkin(ds);
+            rh.Skin();
         }
     }
 }
