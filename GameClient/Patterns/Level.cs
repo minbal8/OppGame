@@ -16,7 +16,6 @@ namespace GameClient
         protected List<Button> buttons = new List<Button>();
         protected List<Trap> traps = new List<Trap>();
 
-
         public int length { get; set; }
         public int width { get; set; }
 

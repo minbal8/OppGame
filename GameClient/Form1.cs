@@ -120,9 +120,6 @@ namespace GameClient
                 ActivationTimerCount = 0.3f;
                 currentLevel.PressButton(playerPicture);
             }
-
-
-
         }
 
         private void UpdatePlayerPositions()
