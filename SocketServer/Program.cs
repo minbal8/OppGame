@@ -15,7 +15,26 @@ namespace SocketServer
         static void Main()
         {
 
-            Server server = new Server(ipAddress, port);
+            int level = 0;
+            bool loop = false;
+            while (!loop)
+            {
+                Console.WriteLine("1 - Easy Logic level");
+                Console.WriteLine("2 - Easy Speed level");
+                Console.WriteLine("3 - Hard Logic level");
+                Console.WriteLine("4 - Hard Speed level");
+
+                loop = int.TryParse(Console.ReadLine(), out level);
+                if (level > 4)
+                {
+                    loop = false;
+                }
+            }
+
+            Console.WriteLine(level);
+
+
+            Server server = new Server(ipAddress, port, level);
 
             if (server.Connect())
             {

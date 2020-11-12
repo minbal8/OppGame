@@ -5,6 +5,7 @@ namespace GameClient
 {
     public class SyncObject
     {
+        public int levelID { get; set; }
         public int ClientID { get; set; }
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }

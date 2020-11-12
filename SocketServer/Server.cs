@@ -16,18 +16,20 @@ namespace SocketServer
 
         int numberOfClients = 2;
 
+        int LevelID;
+
         SyncObject syncObject = new SyncObject();
 
         int[] clientsID;
         Thread[] Threads;
 
-        public Server(string ip, int port)
+        public Server(string ip, int port, int levelID)
         {
             ipAddress = IPAddress.Any;
             localEndPoint = new IPEndPoint(ipAddress, port);
             clientsID = new int[numberOfClients];
             Threads = new Thread[numberOfClients];
-
+            LevelID = levelID;
         }
 
         public bool Connect()
@@ -64,6 +66,7 @@ namespace SocketServer
                 {
                     ServerClient client = new ServerClient();
                     client.syncObject = syncObject;
+                    client.syncObject.levelID = LevelID;
                     client.handler = handler;
                     client.id = id;
                     bool listen = true;

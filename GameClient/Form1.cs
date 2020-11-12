@@ -181,6 +181,7 @@ namespace GameClient
             RedHat rh = new RedHat();
             BlueHat bh = new BlueHat();
 
+
             
             rh.setSkin(ds);
             rh.Skin();

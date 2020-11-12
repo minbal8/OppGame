@@ -10,7 +10,6 @@ namespace SocketServer
         public int id { get; set; }
         public Socket handler { get; set; }
         public SyncObject syncObject { get; set; }
-        private object locker;
 
         public bool Listen()
         {
