@@ -25,6 +25,7 @@ namespace GameClient
             image.Location = loc;
             image.Size = size;
             image.BackColor = color;
+            image.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         public void Skin()

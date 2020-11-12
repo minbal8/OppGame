@@ -11,7 +11,8 @@ namespace GameClient
     {
         public BlueHat()
         {
-            CreateImage(new Point(), new Size(), Color.Blue);
+            CreateImage(new Point(), new Size(75, 85), Color.Transparent);
+            image.Image = Image.FromFile("Images/BlueHat.png");
         }
 
         public void Skin()

@@ -11,7 +11,8 @@ namespace GameClient
     {
         public RedHat()
         {
-            CreateImage(new Point(0,0), new Size(10, 50), Color.Red);
+            CreateImage(new Point(), new Size(75, 85), Color.Transparent);
+            image.Image = Image.FromFile("Images/RedHat.png");
         }
 
         public void Skin()
