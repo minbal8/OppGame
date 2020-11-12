@@ -64,6 +64,10 @@
     <Compile Include="Patterns\Command\StandLeftCommand.cs" />
     <Compile Include="Patterns\Command\RunRightCommand.cs" />
     <Compile Include="Patterns\Command\RunLeftCommand.cs" />
+    <Compile Include="Patterns\Command\LoadHardSpeedLevel.cs" />
+    <Compile Include="Patterns\Command\LoadEasySpeedLevel.cs" />
+    <Compile Include="Patterns\Command\LoadHardLogicLevel.cs" />
+    <Compile Include="Patterns\Command\LoadEasyLogicLevel.cs" />
     <Compile Include="Patterns\Decorator\BlueHat.cs" />
     <Compile Include="Patterns\Strategy\ButtonAlgorithm.cs" />
     <Compile Include="Patterns\Observer\Button.cs" />
@@ -75,7 +79,7 @@
     <Compile Include="Patterns\AbstractFactory\AbstractLevelFactory.cs" />
     <Compile Include="Patterns\Factory\Factory.cs" />
     <Compile Include="Patterns\Factory\FallTrap.cs" />
-    <Compile Include="Patterns\Command\Invoker.cs" />
+    <Compile Include="Patterns\Command\LevelSelect.cs" />
     <Compile Include="Patterns\Facade\Level.cs" />
     <Compile Include="Patterns\AbstractFactory\EasyLevelFactory.cs" />
     <Compile Include="Patterns\Builder\LevelBuilder.cs" />
@@ -86,7 +90,6 @@
     <Compile Include="Patterns\Decorator\RedHat.cs" />
     <Compile Include="Patterns\Factory\SawTrap.cs" />
     <Compile Include="Patterns\Decorator\Scarf.cs" />
-    <Compile Include="Patterns\Command\SimpleAnimator.cs" />
     <Compile Include="Patterns\Decorator\Skin.cs" />
     <Compile Include="Patterns\AbstractFactory\SpeedLevel.cs" />
     <Compile Include="Patterns\AbstractFactory\HardLevelFactory.cs" />

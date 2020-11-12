@@ -1,17 +1,15 @@
-﻿using System.Drawing;
-
-namespace GameClient
+﻿namespace GameClient
 {
     public abstract class Command
     {
-        protected SimpleAnimator receiver;
+        protected AbstractLevelFactory receiver;
 
-        public Command(SimpleAnimator receiver)
+        public Command(AbstractLevelFactory receiver)
         {
             this.receiver = receiver;
         }
 
-        public abstract Image Execute();
+        public abstract Level Execute();
 
     }
 }
