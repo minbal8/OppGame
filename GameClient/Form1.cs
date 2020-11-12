@@ -176,12 +176,16 @@ namespace GameClient
 
         private void decoratorTest()
         {
+            
             DefaultSkin ds = new DefaultSkin();
             RedHat rh = new RedHat();
             BlueHat bh = new BlueHat();
 
+            
             rh.setSkin(ds);
             rh.Skin();
+
+            Player1Picture.Controls.Add(rh.image);
         }
     }
 }

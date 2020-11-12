@@ -7,9 +7,9 @@
         {
             _command = command;
         }
-        public int Execute()
-        {
-            return _command.Execute();
-        }
+        //public int Execute()
+        //{
+        //    return _command.Execute();
+        //}
     }
 }
