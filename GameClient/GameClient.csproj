@@ -60,10 +60,6 @@
     <Compile Include="Patterns\Bridge\Red.cs" />
     <Compile Include="Patterns\Bridge\Scarf_tmp.cs" />
     <Compile Include="Patterns\Bridge\Wearable.cs" />
-    <Compile Include="Patterns\Command\StandRightCommand.cs" />
-    <Compile Include="Patterns\Command\StandLeftCommand.cs" />
-    <Compile Include="Patterns\Command\RunRightCommand.cs" />
-    <Compile Include="Patterns\Command\RunLeftCommand.cs" />
     <Compile Include="Patterns\Command\LoadHardSpeedLevel.cs" />
     <Compile Include="Patterns\Command\LoadEasySpeedLevel.cs" />
     <Compile Include="Patterns\Command\LoadHardLogicLevel.cs" />
