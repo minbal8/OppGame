@@ -6,18 +6,16 @@ namespace GameClient
     public class Valve : Observer
     {
         public PictureBox image { get; set; }
-        public int CoordinateX { get; set; }
-        public int CoordinateY { get; set; }
 
         private int ObserverState { get; set; }
         private bool Opened;
+
+        public int PlayerID { get; set; }
 
         private Size originalSize;
 
         public Valve(int x, int y)
         {
-            CoordinateX = x;
-            CoordinateY = y;
             CreateImage(new Point(x, y), new Size(20, 100));
         }
 
@@ -29,11 +27,13 @@ namespace GameClient
 
         }
 
+        public bool GetState()
+        {
+            return Opened;
+        }
+
         public Valve(Point upperLeft, Point bottomRight)
         {
-            CoordinateX = upperLeft.X;
-            CoordinateY = upperLeft.Y;
-
             originalSize = new Size(bottomRight.X - upperLeft.X, bottomRight.Y - upperLeft.Y);
             CreateImage(upperLeft, originalSize);
         }
@@ -57,11 +57,11 @@ namespace GameClient
             switch (ObserverState)
             {
                 case 0:
-                    if (Opened) Close();
+                    if (!Opened) Close();
                     else Open();
                     break;
                 case 1:
-                    if (!Opened) Close();
+                    if (Opened) Close();
                     else Open();
                     break;
                 default:

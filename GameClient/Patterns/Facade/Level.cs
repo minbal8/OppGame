@@ -15,6 +15,7 @@ namespace GameClient
         protected List<Valve> valves = new List<Valve>();
         protected List<Button> buttons = new List<Button>();
         protected List<Trap> traps = new List<Trap>();
+        protected List<ValveSync> valveSync = GameStateSingleton.getInstance().Valves;
 
         public int length { get; set; }
         public int width { get; set; }
@@ -40,24 +41,27 @@ namespace GameClient
             {
                 controls.Add(item.image);
             }
-
-            //TestCase(controls);
         }
 
-        private void TestCase(ControlCollection controls)
+        public void UpdateValves(int id)
         {
-            Button but = new Button(100, 100);
-            but.SetAlgorithm(new OpenActivation());
+            valveSync = GameStateSingleton.getInstance().Valves;
 
-            Valve v = new Valve(200, 200);
-            but.Attach(v);
-
-
-            controls.Add(but.image);
-            controls.Add(v.image);
-            buttons.Add(but);
+            for (int i = 0; i < valveSync.Count; i++)
+            {
+                if (valveSync[i].PlayerID == id)
+                {
+                    valves[i].SetState(valveSync[i].State);
+                }
+                else
+                {
+                    valveSync[i].State = valves[i].GetState();
+                }
+            }
+            GameStateSingleton.getInstance().Valves = valveSync;
         }
 
+        #region Collisions
         public int CheckHorizontalCollisions(int dx, PictureBox player, int stepSize)
         {
             foreach (var item in walls)
@@ -101,6 +105,9 @@ namespace GameClient
                 }
             }
         }
+        #endregion
+
+        #region AddLevelPartsMethods
 
         public void AddPart(Wall wall)
         {
@@ -114,6 +121,10 @@ namespace GameClient
 
         public void AddPart(Valve valve)
         {
+            var temp = new ValveSync();
+            temp.State = valve.GetState();
+            temp.PlayerID = valve.PlayerID;
+            valveSync.Add(temp);
             valves.Add(valve);
         }
 
@@ -121,7 +132,7 @@ namespace GameClient
         {
             buttons.Add(button);
         }
-
+        #endregion
     }
 
 }

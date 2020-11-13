@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 
@@ -48,16 +49,16 @@ namespace SocketServer
                 {
                     syncObject.Player1 = temp.Player1;
                     syncObject.ClientID = 1;
+
                 }
                 if (id == 1)
                 {
                     syncObject.Player2 = temp.Player2;
                     syncObject.ClientID = 2;
                 }
-
+                syncObject.valves = temp.valves;
             }
         }
-
 
         public void Send(string message)
         {

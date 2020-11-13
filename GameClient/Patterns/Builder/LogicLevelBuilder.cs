@@ -36,6 +36,7 @@ namespace GameClient
                     var y1 = int.Parse(coords[1]);
                     var x2 = int.Parse(coords[2]);
                     var y2 = int.Parse(coords[3]);
+                    var playerID = int.Parse(coords[4]);
 
                     var state = int.Parse(coords[4]) == 1;
 
@@ -43,6 +44,7 @@ namespace GameClient
                     {
                         Valve valve = new Valve(new Point(x1, y1), new Point(x2, y2));
                         valve.SetState(state);
+                        valve.PlayerID = playerID;
                         button.Attach(valve);
                         _level.AddPart(valve);
                     }

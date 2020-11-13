@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace GameClient
@@ -11,8 +12,8 @@ namespace GameClient
         public int ClientID { get; set; }
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
-
         public int LevelID { get; set; }
+        public List<ValveSync> Valves = new List<ValveSync>();
 
         GameStateSingleton()
         {
@@ -27,25 +28,7 @@ namespace GameClient
             {
                 return instance;
             }
-        }
-
-        private PropertyInfo[] _PropertyInfos = null;
-
-        public override string ToString()
-        {
-            if (_PropertyInfos == null)
-                _PropertyInfos = this.GetType().GetProperties();
-
-            var sb = new StringBuilder();
-
-            foreach (var info in _PropertyInfos)
-            {
-                var value = info.GetValue(this, null) ?? "(null)";
-                sb.AppendLine(info.Name + ": " + value.ToString());
-            }
-
-            return sb.ToString();
-        }
+        }      
 
     }
 }

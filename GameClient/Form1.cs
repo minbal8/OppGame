@@ -36,6 +36,7 @@ namespace GameClient
             timer1.Start();
         }
 
+        #region PlayerInput
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A) { PressedLeft = true; }
@@ -54,7 +55,6 @@ namespace GameClient
             if (e.KeyCode == Keys.S) { PressedBottom = false; }
             if (e.KeyCode == Keys.E) { PressedE = false; }
         }
-
         private void GetMovementValues()
         {
             dx = 0; dy = 0;
@@ -64,6 +64,9 @@ namespace GameClient
             if (PressedBottom && !PressedUp) { dy = StepSize; }
         }
 
+        #endregion
+
+        #region GameLogic
         private void timer1_Tick(object sender, EventArgs e)
         {
             GetMovementValues();
@@ -72,6 +75,7 @@ namespace GameClient
             UpdateGameState();
             playerAnimator.Update();
         }
+
 
         private void UpdateGameState()
         {
@@ -92,6 +96,9 @@ namespace GameClient
                 clientPlayer.PosY = Player2Picture.Location.Y;
                 GameStateSingleton.getInstance().Player2 = clientPlayer;
             }
+            
+            if (currentLevel != null)
+                currentLevel.UpdateValves(ClientID);
 
         }
 
@@ -151,6 +158,7 @@ namespace GameClient
             }
 
         }
+        #endregion
 
         private void LoadLevel()
         {
@@ -167,7 +175,7 @@ namespace GameClient
 
             while (GameStateSingleton.getInstance().LevelID == 0)
             {
-                
+
             }
             int id = GameStateSingleton.getInstance().LevelID;
 
@@ -204,16 +212,8 @@ namespace GameClient
         }
 
 
-        private void TestLevelCollisions()
-        {
-            AbstractLevelFactory factory = new EasyLevelFactory();
-            currentLevel = factory.createLogicLevel();
-            currentLevel.DrawLevel(Controls);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            //TestLevelCollisions();
             button1.Enabled = false;
             button1.Visible = false;
             syncer.Start();
@@ -243,7 +243,7 @@ namespace GameClient
             //RedHat rh = new RedHat();
             //BlueHat bh = new BlueHat();
             //BlueHat bh2 = new BlueHat();
-            
+
             //rh.setSkin(ds);
             //bh.setSkin(rh);
             //bh2.setSkin(bh);

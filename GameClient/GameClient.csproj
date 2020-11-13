@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OnlineCommunication\Client.cs" />
+    <Compile Include="OnlineCommunication\ValveSync.cs" />
     <Compile Include="Patterns\Bridge\Blue.cs" />
     <Compile Include="Patterns\Bridge\Hat.cs" />
     <Compile Include="Patterns\Bridge\ItemColor.cs" />
