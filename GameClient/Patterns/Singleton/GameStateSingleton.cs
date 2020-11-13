@@ -13,7 +13,8 @@ namespace GameClient
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public int LevelID { get; set; }
-        public List<ValveSync> Valves { get; set; }
+        public List<ValveSync> LocalValvesStates { get; set; }
+        public List<ValveSync> SyncedValvesStates { get; set; }
 
         GameStateSingleton()
         {

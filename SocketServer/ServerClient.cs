@@ -45,31 +45,24 @@ namespace SocketServer
             {
                 data = data.Replace("<EOF>", "");
                 var temp = JsonConvert.DeserializeObject<SyncObject>(data);
+
+                if (syncObject.valves == null)
+                    syncObject.valves = temp.valves;
+
                 if (id == 0)
                 {
                     syncObject.Player1 = temp.Player1;
                     syncObject.ClientID = 1;
-
-                   /* if (temp.valves.Count > 0)
-                    {
+                    if (temp.valves != null)
                         UpdateValves(1, temp);
-                    }*/
-
                 }
                 if (id == 1)
                 {
                     syncObject.Player2 = temp.Player2;
                     syncObject.ClientID = 2;
-                    /*if (temp.valves.Count > 0)
-                    {
+                    if (temp.valves != null)
                         UpdateValves(2, temp);
-                    }*/
-
                 }
-
-                //Console.WriteLine(temp.valves.Count);
-
-
             }
         }
 

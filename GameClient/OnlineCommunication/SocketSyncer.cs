@@ -70,10 +70,10 @@ namespace GameClient
 
         private void UpdateValveInformation()
         {
-            item.valves = GameStateSingleton.getInstance().Valves;
+            item.valves = GameStateSingleton.getInstance().LocalValvesStates;
 
             
-            
+
         }
 
         private void UpdatePlayerInformation()
@@ -92,7 +92,9 @@ namespace GameClient
             GameStateSingleton.getInstance().Player1 = _item.Player1;
             GameStateSingleton.getInstance().ClientID = _item.ClientID;
             GameStateSingleton.getInstance().LevelID = _item.levelID;
-            GameStateSingleton.getInstance().Valves = _item.valves;
+            GameStateSingleton.getInstance().SyncedValvesStates = _item.valves;
+
+            
         }
     }
 }

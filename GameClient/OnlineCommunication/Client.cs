@@ -33,8 +33,10 @@ namespace GameClient
             }
             catch (SocketException se)
             {
-                Console.WriteLine("Could not connect to server, retrying...");
-                return Connect();
+                //Console.WriteLine("Could not connect to server, retrying...");
+
+                Console.WriteLine("Could not connect to server. Check if server is online and try again");
+                return false;
             }
             catch (Exception e)
             {
@@ -60,7 +62,7 @@ namespace GameClient
                 Console.WriteLine("Disconnected from server");
 
                 handler = null;
-                return Connect();
+                return false;
             }
         }
 

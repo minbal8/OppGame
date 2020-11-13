@@ -46,10 +46,14 @@ namespace GameClient
 
         public void UpdateValves(int id)
         {
+            var tempStates = GameStateSingleton.getInstance().SyncedValvesStates;
+            if (tempStates != null)
+            {
+                valveSync = tempStates;
+            }
 
             for (int i = 0; i < valves.Count; i++)
             {
-
                 if (valves[i].PlayerID == id)
                 {
                     valveSync[i].State = valves[i].GetState();
@@ -57,12 +61,7 @@ namespace GameClient
                 valves[i].SetState(valveSync[i].State);
             }
 
-            for (int i = 0; i < valveSync.Count; i++)
-            {
-                Console.Write(valveSync[i].State + " ");
-            }
-            Console.WriteLine();
-
+            GameStateSingleton.getInstance().LocalValvesStates = valveSync;
         }
 
         #region Collisions
