@@ -11,7 +11,7 @@ namespace GameClient
             builder.BuildInnerWalls();
             builder.BuildButtonsAndValves();
             builder.BuildTraps();
-            builder.BuildStartAndFinish();
+            builder.BuildStartAndFinishAreas();
 
             return level;
         }
@@ -23,7 +23,7 @@ namespace GameClient
             builder.BuildOuterWalls();
             builder.BuildInnerWalls();
             builder.BuildTraps();
-            builder.BuildStartAndFinish();
+            builder.BuildStartAndFinishAreas();
 
             return level;
         }

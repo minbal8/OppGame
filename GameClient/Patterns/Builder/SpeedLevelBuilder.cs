@@ -27,7 +27,7 @@ namespace GameClient
             Console.WriteLine("Building buttons and valves ... ");
         }
 
-        public override void BuildStartAndFinish()
+        public override void BuildStartAndFinishAreas()
         {
             Console.WriteLine("Building start and finish areas ... ");
         }

@@ -28,7 +28,7 @@ namespace GameClient
         public abstract void BuildInnerWalls();
         public abstract void BuildTraps();
         public abstract void BuildButtonsAndValves();
-        public abstract void BuildStartAndFinish();
+        public abstract void BuildStartAndFinishAreas();
 
     }
 }

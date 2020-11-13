@@ -10,6 +10,7 @@ namespace GameClient
         public int CoordinateY { get; set; }
 
         private int ObserverState { get; set; }
+        private bool Opened;
 
         public Valve(int x, int y)
         {
