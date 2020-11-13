@@ -1,5 +1,6 @@
 
 
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace GameClient
         protected List<Valve> valves = new List<Valve>();
         protected List<Button> buttons = new List<Button>();
         protected List<Trap> traps = new List<Trap>();
-        protected List<ValveSync> valveSync = GameStateSingleton.getInstance().Valves;
+        protected List<ValveSync> valveSync = new List<ValveSync>();
 
         public int length { get; set; }
         public int width { get; set; }
@@ -45,20 +46,23 @@ namespace GameClient
 
         public void UpdateValves(int id)
         {
-            valveSync = GameStateSingleton.getInstance().Valves;
 
-            for (int i = 0; i < valveSync.Count; i++)
+            for (int i = 0; i < valves.Count; i++)
             {
-                if (valveSync[i].PlayerID == id)
-                {
-                    valves[i].SetState(valveSync[i].State);
-                }
-                else
+
+                if (valves[i].PlayerID == id)
                 {
                     valveSync[i].State = valves[i].GetState();
                 }
+                valves[i].SetState(valveSync[i].State);
             }
-            GameStateSingleton.getInstance().Valves = valveSync;
+
+            for (int i = 0; i < valveSync.Count; i++)
+            {
+                Console.Write(valveSync[i].State + " ");
+            }
+            Console.WriteLine();
+
         }
 
         #region Collisions

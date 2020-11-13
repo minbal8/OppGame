@@ -36,9 +36,9 @@ namespace GameClient
                     var y1 = int.Parse(coords[1]);
                     var x2 = int.Parse(coords[2]);
                     var y2 = int.Parse(coords[3]);
-                    var playerID = int.Parse(coords[4]);
 
                     var state = int.Parse(coords[4]) == 1;
+                    var playerID = int.Parse(coords[5]);
 
                     if (button != null)
                     {

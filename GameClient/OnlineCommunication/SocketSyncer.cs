@@ -72,11 +72,8 @@ namespace GameClient
         {
             item.valves = GameStateSingleton.getInstance().Valves;
 
-            for (int i = 0; i < item.valves.Count; i++)
-            {
-                Console.Write(item.valves[i].State + " ");
-            }
-            Console.WriteLine();
+            
+            
         }
 
         private void UpdatePlayerInformation()

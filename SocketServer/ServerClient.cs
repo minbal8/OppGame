@@ -50,13 +50,37 @@ namespace SocketServer
                     syncObject.Player1 = temp.Player1;
                     syncObject.ClientID = 1;
 
+                   /* if (temp.valves.Count > 0)
+                    {
+                        UpdateValves(1, temp);
+                    }*/
+
                 }
                 if (id == 1)
                 {
                     syncObject.Player2 = temp.Player2;
                     syncObject.ClientID = 2;
+                    /*if (temp.valves.Count > 0)
+                    {
+                        UpdateValves(2, temp);
+                    }*/
+
                 }
-                syncObject.valves = temp.valves;
+
+                //Console.WriteLine(temp.valves.Count);
+
+
+            }
+        }
+
+        private void UpdateValves(int id, SyncObject temp)
+        {
+            for (int i = 0; i < temp.valves.Count; i++)
+            {
+                if (temp.valves[i].PlayerID == id)
+                {
+                    syncObject.valves[i].State = temp.valves[i].State;
+                }
             }
         }
 

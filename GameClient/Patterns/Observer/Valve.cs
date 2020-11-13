@@ -8,7 +8,7 @@ namespace GameClient
         public PictureBox image { get; set; }
 
         private int ObserverState { get; set; }
-        private bool Opened;
+        private bool IsValveOpen;
 
         public int PlayerID { get; set; }
 
@@ -20,16 +20,14 @@ namespace GameClient
         }
 
         public void SetState(bool opened)
-        {
-            Opened = opened;
-            if (Opened) Open();
+        {            
+            if (opened) Open();
             else Close();
-
         }
 
         public bool GetState()
         {
-            return Opened;
+            return IsValveOpen;
         }
 
         public Valve(Point upperLeft, Point bottomRight)
@@ -57,12 +55,10 @@ namespace GameClient
             switch (ObserverState)
             {
                 case 0:
-                    if (!Opened) Close();
-                    else Open();
+                    SetState(!IsValveOpen);
                     break;
                 case 1:
-                    if (Opened) Close();
-                    else Open();
+                    SetState(!IsValveOpen);
                     break;
                 default:
                     break;
@@ -73,11 +69,13 @@ namespace GameClient
         private void Open()
         {
             image.Size = originalSize;
+            IsValveOpen = true;
         }
 
         private void Close()
         {
             image.Size = new Size(0, 0);
+            IsValveOpen = false;
         }
 
         public bool CheckCollision(Point location, Size size)
