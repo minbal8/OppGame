@@ -19,7 +19,7 @@ namespace GameClient
         public int length { get; set; }
         public int width { get; set; }
 
-        public void DrawWalls(ControlCollection controls)
+        public void DrawLevel(ControlCollection controls)
         {
             foreach (var item in walls)
             {
@@ -29,6 +29,16 @@ namespace GameClient
             foreach (var item in traps)
             {
                 controls.Add(item.picture);
+            }
+
+            foreach (var item in valves)
+            {
+                controls.Add(item.image);
+            }
+
+            foreach (var item in buttons)
+            {
+                controls.Add(item.image);
             }
 
             //TestCase(controls);
@@ -55,6 +65,12 @@ namespace GameClient
                 if (dx < 0 && item.CheckLeft(player, stepSize)) { dx = 0; }
                 if (dx > 0 && item.CheckRight(player, stepSize)) { dx = 0; }
             }
+
+            foreach (var item in valves)
+            {
+                if (dx < 0 && item.CheckLeft(player, stepSize)) { dx = 0; }
+                if (dx > 0 && item.CheckRight(player, stepSize)) { dx = 0; }
+            }
             return dx;
         }
 
@@ -65,6 +81,13 @@ namespace GameClient
                 if (dy < 0 && item.CheckTop(player, stepSize)) { dy = 0; }
                 if (dy > 0 && item.CheckBottom(player, stepSize)) { dy = 0; }
             }
+
+            foreach (var item in valves)
+            {
+                if (dy < 0 && item.CheckTop(player, stepSize)) { dy = 0; }
+                if (dy > 0 && item.CheckBottom(player, stepSize)) { dy = 0; }
+            }
+
             return dy;
         }
 
@@ -87,6 +110,16 @@ namespace GameClient
         public void AddPart(Trap trap)
         {
             traps.Add(trap);
+        }
+
+        public void AddPart(Valve valve)
+        {
+            valves.Add(valve);
+        }
+
+        public void AddPart(Button button)
+        {
+            buttons.Add(button);
         }
 
     }

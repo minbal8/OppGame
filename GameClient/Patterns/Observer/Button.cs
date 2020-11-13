@@ -19,7 +19,7 @@ namespace GameClient
 
             CoordinateX = x;
             CoordinateY = y;
-            CreateImage(new Point(x, y), new Size(20, 20));
+            CreateImage(new Point(x, y), new Size(30, 30));
 
         }
 

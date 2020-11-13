@@ -194,7 +194,7 @@ namespace GameClient
             }
 
             currentLevel = levelSelect.Execute();
-            currentLevel.DrawWalls(Controls);
+            currentLevel.DrawLevel(Controls);
 
         }
 
@@ -208,7 +208,7 @@ namespace GameClient
         {
             AbstractLevelFactory factory = new EasyLevelFactory();
             currentLevel = factory.createLogicLevel();
-            currentLevel.DrawWalls(Controls);
+            currentLevel.DrawLevel(Controls);
         }
 
         private void button1_Click(object sender, EventArgs e)
