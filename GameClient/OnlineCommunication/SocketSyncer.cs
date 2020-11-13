@@ -74,6 +74,8 @@ namespace GameClient
             GameStateSingleton.getInstance().Player2 = _item.Player2;
             GameStateSingleton.getInstance().Player1 = _item.Player1;
             GameStateSingleton.getInstance().ClientID = _item.ClientID;
+            GameStateSingleton.getInstance().LevelID = _item.levelID;
+
         }
     }
 }

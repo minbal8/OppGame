@@ -152,10 +152,57 @@ namespace GameClient
 
         }
 
+        private void LoadLevel()
+        {
+            AbstractLevelFactory easyLevelFactory = new EasyLevelFactory();
+            AbstractLevelFactory hardLevelFactory = new HardLevelFactory();
+
+            LoadEasyLogicLevel easyLogicLevel = new LoadEasyLogicLevel(easyLevelFactory);
+            LoadEasySpeedLevel easySpeedLevel = new LoadEasySpeedLevel(easyLevelFactory);
+
+            LoadHardLogicLevel hardLogicLevel = new LoadHardLogicLevel(hardLevelFactory);
+            LoadHardSpeedLevel hardSpeedLevel = new LoadHardSpeedLevel(hardLevelFactory);
+
+            LevelSelect levelSelect = new LevelSelect();
+
+            while (GameStateSingleton.getInstance().LevelID == 0)
+            {
+                
+            }
+            int id = GameStateSingleton.getInstance().LevelID;
+
+            switch (id)
+            {
+                case 1:
+                    levelSelect.SetCommand(easyLogicLevel);
+                    break;
+
+                case 2:
+                    levelSelect.SetCommand(easySpeedLevel);
+                    break;
+
+                case 3:
+                    levelSelect.SetCommand(hardLogicLevel);
+                    break;
+
+                case 4:
+                    levelSelect.SetCommand(hardSpeedLevel);
+                    break;
+
+                default:
+                    break;
+            }
+
+            currentLevel = levelSelect.Execute();
+            currentLevel.DrawWalls(Controls);
+
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             syncer.Stop();
         }
+
 
         private void TestLevelCollisions()
         {
@@ -166,23 +213,24 @@ namespace GameClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestLevelCollisions();
+            //TestLevelCollisions();
             button1.Enabled = false;
             button1.Visible = false;
             syncer.Start();
+            LoadLevel();
             Focus();
             decoratorTest();
         }
 
         private void decoratorTest()
         {
-            
+
             DefaultSkin ds = new DefaultSkin();
             RedHat rh = new RedHat();
             BlueHat bh = new BlueHat();
 
 
-            
+
             rh.setSkin(ds);
             rh.Skin();
 

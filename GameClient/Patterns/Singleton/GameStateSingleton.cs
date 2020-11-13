@@ -12,6 +12,8 @@ namespace GameClient
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
 
+        public int LevelID { get; set; }
+
         GameStateSingleton()
         {
             Player1 = new Player();
