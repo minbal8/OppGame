@@ -15,9 +15,10 @@ namespace GameClient
             image.Image = Image.FromFile("Images/RedHat.png");
         }
 
-        public void Skin()
+        public override void Skin()
         {
-            base.Skin();
+            //base.Skin();
+            skin.Skin();
             addRedHat();
             Console.WriteLine("RedHat");
         }

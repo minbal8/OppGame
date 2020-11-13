@@ -15,16 +15,17 @@ namespace GameClient
             image.Image = Image.FromFile("Images/BlueHat.png");
         }
 
-        public void Skin()
+        public override void Skin()
         {
-            base.Skin();
+            //base.Skin();
+            skin.Skin();
             addBlueHat();
             Console.WriteLine("BlueHat");
         }
 
         public void addBlueHat()
         {
-            Console.WriteLine("added BlueHat");
+            //Console.WriteLine("added BlueHat");
         }
     }
 }

@@ -14,9 +14,10 @@ namespace GameClient
             CreateImage(new Point(), new Size(), Color.Yellow);
         }
 
-        public void Skin()
+        public override void Skin()
         {
-            base.Skin();
+            //base.Skin();
+            skin.Skin();
             addScarf();
             Console.WriteLine("Scarf");
         }
