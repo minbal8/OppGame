@@ -6,11 +6,11 @@ namespace GameClient
 {
     class SpeedLevelBuilder : LevelBuilder
     {
-        public SpeedLevelBuilder(Level level) : base(level) { }        
+        public SpeedLevelBuilder(Level level) : base(level) { }
 
         public override void BuildInnerWalls()
         {
-            string[] lines = File.ReadAllLines("Levels/SpeedLevel.txt");
+            string[] lines = File.ReadAllLines("Levels/SpeedLevel/SpeedLevel.txt");
             foreach (var item in lines)
             {
                 string[] coords = item.Split(',', ' ');
@@ -18,7 +18,7 @@ namespace GameClient
                 var y1 = int.Parse(coords[1]);
                 var x2 = int.Parse(coords[2]);
                 var y2 = int.Parse(coords[3]);
-                _level.AddWall(new Wall(new Point(x1, y1), new Point(x2, y2)));
+                _level.AddPart(new Wall(new Point(x1, y1), new Point(x2, y2)));
             }
         }
 
@@ -35,6 +35,25 @@ namespace GameClient
         public override void BuildTraps()
         {
             Console.WriteLine("Building traps ... ");
+
+            Factory trapFactory = new TrapFactory();
+
+            string[] lines = File.ReadAllLines("Levels/SpeedLevel/Traps.txt");
+            foreach (var item in lines)
+            {
+                string[] coords = item.Split(',');
+                var type = int.Parse(coords[0]);
+                var x1 = int.Parse(coords[1]);
+                var y1 = int.Parse(coords[2]);
+                var x2 = int.Parse(coords[3]);
+                var y2 = int.Parse(coords[4]);
+
+                Trap temp = trapFactory.CreateTrap(type,
+                    new Point(x1, y1),
+                    new Point(x2, y2));
+
+                _level.AddPart(temp);
+            }
         }
     }
 }

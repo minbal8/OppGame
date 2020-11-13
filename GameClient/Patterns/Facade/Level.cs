@@ -26,7 +26,12 @@ namespace GameClient
                 controls.Add(item.image);
             }
 
-            TestCase(controls);
+            foreach (var item in traps)
+            {
+                controls.Add(item.picture);
+            }
+
+            //TestCase(controls);
         }
 
         private void TestCase(ControlCollection controls)
@@ -34,7 +39,7 @@ namespace GameClient
             Button but = new Button(100, 100);
             but.SetAlgorithm(new OpenActivation());
 
-            Valve v = new Valve(200,200);
+            Valve v = new Valve(200, 200);
             but.Attach(v);
 
 
@@ -74,14 +79,14 @@ namespace GameClient
             }
         }
 
-        public void AddWall(Wall wall)
+        public void AddPart(Wall wall)
         {
             walls.Add(wall);
         }
 
-        public void AddPart()
+        public void AddPart(Trap trap)
         {
-
+            traps.Add(trap);
         }
 
     }

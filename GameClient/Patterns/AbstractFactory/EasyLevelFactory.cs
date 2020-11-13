@@ -24,7 +24,6 @@ namespace GameClient
             LevelBuilder builder = new SpeedLevelBuilder(level);
             builder.BuildOuterWalls();
             builder.BuildInnerWalls();
-            builder.BuildButtonsAndValves();
             builder.BuildStartAndFinish();
             return level;
         }
