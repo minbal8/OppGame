@@ -66,6 +66,7 @@
     <Compile Include="Patterns\Command\LoadHardLogicLevel.cs" />
     <Compile Include="Patterns\Command\LoadEasyLogicLevel.cs" />
     <Compile Include="Patterns\Decorator\BlueHat.cs" />
+    <Compile Include="Patterns\Prototype\HatPrototype.cs" />
     <Compile Include="Patterns\Strategy\ButtonAlgorithm.cs" />
     <Compile Include="Patterns\Observer\Button.cs" />
     <Compile Include="Patterns\Strategy\CloseActivation.cs" />

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    class Hat : Wearable
+    class Hat : Wearable, HatPrototype
     {
         private PictureBox p;
 
@@ -40,6 +40,16 @@ namespace GameClient
         {
 
             player.Controls.Add(image);
+        }
+
+        public string GetPlayerPosition()
+        {
+            return p.Location.ToString();
+        }
+
+        public HatPrototype Clone()
+        {
+            return this.MemberwiseClone() as HatPrototype;
         }
     }
 }

@@ -219,10 +219,11 @@ namespace GameClient
             syncer.Start();
             LoadLevel();
             Focus();
-            decoratorTest();
+            DecoratorTest();
+            PrototypeTest();
         }
 
-        private void decoratorTest()
+        private void DecoratorTest()
         {
             Wearable hat = new Hat(Player1Picture);
             hat.ItemColor = new Red();
@@ -249,6 +250,13 @@ namespace GameClient
             //s.setSkin(ds);
             //bh.setSkin(s);
             //bh.Skin();
+        }
+
+        private void PrototypeTest()
+        {
+            Hat hat = new Hat(Player1Picture);
+            Hat cloneHat = (Hat)hat.Clone();
+            Console.WriteLine("Clone: {0}", cloneHat.GetPlayerPosition());
         }
     }
 }
