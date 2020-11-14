@@ -150,7 +150,7 @@
     <Content Include="Images\BlueHat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\blueScarf.png">
+    <Content Include="Images\BlueScarf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\RedHat.png">

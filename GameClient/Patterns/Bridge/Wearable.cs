@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GameClient
 {
     abstract class Wearable : Decorator
     {
+
         protected ItemColor itemColor;
 
         public ItemColor ItemColor
@@ -15,18 +17,18 @@ namespace GameClient
             set { itemColor = value; }
         }
 
-        public virtual void Draw()
+        public virtual string Draw()
         {
-            itemColor.Color();
+            return itemColor.Color();
         }
 
         public override void Skin()
         {
+            Draw();
             skin.Skin();
             //base.Skin();
-            Draw();
+            
         }
         //public abstract void Draw();
-
     }
 }

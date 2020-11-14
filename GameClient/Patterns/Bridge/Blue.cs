@@ -8,9 +8,10 @@ namespace GameClient
 {
     class Blue : ItemColor
     {
-        public override void Color()
+        public override string Color()
         {
-            Console.WriteLine("set collor blue");
+            return "Blue";
+            //Console.WriteLine("set collor blue");
         }
     }
 }

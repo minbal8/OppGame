@@ -4,27 +4,33 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GameClient
 {
     class BlueHat : Decorator
     {
-        public BlueHat()
+        private PictureBox p;
+
+        public BlueHat(PictureBox player)
         {
-            CreateImage(new Point(), new Size(75, 85), Color.Transparent);
+            this.p = player;
+            CreateImage(new Point(0,20), new Size(75, 85), Color.Transparent);
             image.Image = Image.FromFile("Images/BlueHat.png");
         }
 
         public override void Skin()
         {
             //base.Skin();
+            addBlueHat(this.p);
             skin.Skin();
-            addBlueHat();
+
             Console.WriteLine("BlueHat");
         }
 
-        public void addBlueHat()
+        public void addBlueHat(PictureBox player)
         {
+            player.Controls.Add(image);
             //Console.WriteLine("added BlueHat");
         }
     }

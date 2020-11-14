@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    abstract class ItemColor
+    abstract class PlayerPrototype
     {
-        public abstract string Color();
+        public abstract PlayerPrototype Clone();
     }
 }

@@ -224,13 +224,12 @@ namespace GameClient
 
         private void decoratorTest()
         {
-            Wearable hat = new Hat();
-
+            Wearable hat = new Hat(Player1Picture);
             hat.ItemColor = new Red();
+
             //hat.Draw();
 
-            Wearable scarf = new Scarf_tmp();
-
+            Wearable scarf = new Scarf_tmp(Player1Picture);
             scarf.ItemColor = new Blue();
             //scarf.Draw();
 
@@ -240,16 +239,16 @@ namespace GameClient
             scarf.setSkin(hat);
             scarf.Skin();
 
-            //RedHat rh = new RedHat();
-            //BlueHat bh = new BlueHat();
-            //BlueHat bh2 = new BlueHat();
 
-            //rh.setSkin(ds);
-            //bh.setSkin(rh);
-            //bh2.setSkin(bh);
-            //bh2.Skin();
+            //RedHat rh = new RedHat(Player1Picture);
+            //Scarf s = new Scarf(Player1Picture);
+            //BlueHat bh = new BlueHat(Player1Picture);
 
-            //Player1Picture.Controls.Add(rh.image);
+
+            ////rh.setSkin(ds);
+            //s.setSkin(ds);
+            //bh.setSkin(s);
+            //bh.Skin();
         }
     }
 }
