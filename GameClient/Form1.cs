@@ -228,18 +228,14 @@ namespace GameClient
             Wearable hat = new Hat(Player1Picture);
             hat.ItemColor = new Red();
 
-            //hat.Draw();
-
             Wearable scarf = new Scarf_tmp(Player1Picture);
             scarf.ItemColor = new Blue();
-            //scarf.Draw();
 
             DefaultSkin ds = new DefaultSkin();
 
             hat.setSkin(ds);
             scarf.setSkin(hat);
             scarf.Skin();
-
 
             //RedHat rh = new RedHat(Player1Picture);
             //Scarf s = new Scarf(Player1Picture);
