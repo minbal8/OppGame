@@ -10,39 +10,12 @@ using static System.Windows.Forms.Control;
 */
 namespace GameClient
 {
-    public class Level
+    public class Level : MapObjectAdapter
     {
-        protected List<Wall> walls = new List<Wall>();
-        protected List<Valve> valves = new List<Valve>();
-        protected List<Button> buttons = new List<Button>();
-        protected List<Trap> traps = new List<Trap>();
         protected List<ValveSync> valveSync = new List<ValveSync>();
 
         public int length { get; set; }
         public int width { get; set; }
-
-        public void DrawLevel(ControlCollection controls)
-        {
-            foreach (var item in walls)
-            {
-                controls.Add(item.image);
-            }
-
-            foreach (var item in traps)
-            {
-                controls.Add(item.picture);
-            }
-
-            foreach (var item in valves)
-            {
-                controls.Add(item.image);
-            }
-
-            foreach (var item in buttons)
-            {
-                controls.Add(item.image);
-            }
-        }
 
         public void UpdateValves(int id)
         {
