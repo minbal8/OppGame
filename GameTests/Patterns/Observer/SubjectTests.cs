@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GameClient;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,25 +15,43 @@ namespace GameClient.Tests
         [TestMethod()]
         public void AttachTest()
         {
-            Assert.Fail();
+            Button button = new Button(5, 5);
+            Valve valve = new Valve(new Point(5, 5), new Point(3, 2));
+            button.Attach(valve);
+            Assert.IsNotNull(button);
+
         }
 
         [TestMethod()]
         public void DettachTest()
         {
-            Assert.Fail();
+            Button button = new Button(5, 5);
+            Valve valve = new Valve(new Point(5, 5), new Point(3, 2));
+            button.Attach(valve);
+            button.Dettach(valve);
+            Assert.IsNotNull(button);
         }
 
         [TestMethod()]
         public void GetStateTest()
         {
-            Assert.Fail();
+            Button button = new Button(5, 5);
+            int ObserverState = button.GetState();
+            Assert.AreEqual(0, ObserverState);
         }
 
         [TestMethod()]
         public void NotifyTest()
         {
-            Assert.Fail();
+            Button button = new Button(5, 5);
+            Valve valve = new Valve(new Point(5, 5), new Point(3, 2));
+            button.Attach(valve);
+
+            var before = valve.GetState();
+            button.Notify();
+            var after = valve.GetState();
+
+            Assert.AreNotEqual(before, after);
         }
     }
 }
