@@ -2,7 +2,7 @@
 
 namespace GameClient
 {
-    class OpenActivation : ButtonAlgorithm
+    public class OpenActivation : ButtonAlgorithm
     {
         public override int Activate()
         {
