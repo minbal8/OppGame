@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    class CloseActivation : ButtonAlgorithm
+    public class CloseActivation : ButtonAlgorithm
     {
         public override int Activate()
         {

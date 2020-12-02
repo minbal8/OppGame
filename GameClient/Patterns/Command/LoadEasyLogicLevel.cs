@@ -1,6 +1,6 @@
 ﻿namespace GameClient
 {
-    class LoadEasyLogicLevel : Command
+    public class LoadEasyLogicLevel : Command
     {
 
         public LoadEasyLogicLevel(AbstractLevelFactory receiver) : base(receiver)

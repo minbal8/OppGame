@@ -1,6 +1,6 @@
 ﻿namespace GameClient
 {
-    class LoadEasySpeedLevel : Command
+    public class LoadEasySpeedLevel : Command
     {
 
         public LoadEasySpeedLevel(AbstractLevelFactory receiver) : base(receiver)

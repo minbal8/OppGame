@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace GameClient.Tests
 {
@@ -14,13 +15,26 @@ namespace GameClient.Tests
         [TestMethod()]
         public void UpdateTest()
         {
-            Assert.Fail();
+            Button tempButton = new Button(1, 1);
+            Valve tempValve = new Valve(new Point(2, 2), new Point(3, 8));
+            tempButton.SetAlgorithm(new OpenActivation());
+            tempButton.Attach(tempValve);
+            var temp = tempValve.GetState();
+            tempButton.Notify();
+            var temp2 = tempValve.GetState();
+
+            Assert.AreNotEqual(temp, temp2);
         }
 
         [TestMethod()]
         public void SetSubjectTest()
         {
-            Assert.Fail();
+            Button tempButton = new Button(1, 1);
+            Observer tempValve = new Valve(new Point(2, 2), new Point(3, 8));
+
+            tempValve.SetSubject(tempButton);
+
+            Assert.IsTrue(true);
         }
     }
 }

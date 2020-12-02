@@ -12,9 +12,25 @@ namespace GameClient.Tests
     public class ButtonAlgorithmTests
     {
         [TestMethod()]
-        public void ActivateTest()
+        public void ActivateOpenTest()
         {
-            Assert.Fail();
+            OpenActivation tempalg = new OpenActivation();
+            Assert.AreEqual(1, tempalg.Activate());
         }
+
+        [TestMethod()]
+        public void ActivateCloseTest()
+        {
+            CloseActivation tempalg = new CloseActivation();
+            Assert.AreEqual(0, tempalg.Activate());
+        }
+
+        [TestMethod()]
+        public void ActivateTimedTest()
+        {
+            TimedActivation tempalg = new TimedActivation();
+            Assert.AreEqual(1, tempalg.Activate());
+        }
+
     }
 }
