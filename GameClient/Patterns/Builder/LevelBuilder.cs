@@ -17,18 +17,20 @@ namespace GameClient
             _level = level;
         }
 
-        public void BuildOuterWalls()
+        public Level BuildOuterWalls()
         {
             _level.AddPart(new Wall(new Point(0, 0), new Size(1280, 5)));
             _level.AddPart(new Wall(new Point(0, 720), new Size(1280, 5)));
             _level.AddPart(new Wall(new Point(1280, 0), new Size(5, 720)));
             _level.AddPart(new Wall(new Point(0, 0), new Size(5, 720)));
+
+            return _level;
         }
 
-        public abstract void BuildInnerWalls();
-        public abstract void BuildTraps();
-        public abstract void BuildButtonsAndValves();
-        public abstract void BuildStartAndFinishAreas();
+        public abstract Level BuildInnerWalls();
+        public abstract Level BuildTraps();
+        public abstract Level BuildButtonsAndValves();
+        public abstract Level BuildStartAndFinishAreas();
 
     }
 }

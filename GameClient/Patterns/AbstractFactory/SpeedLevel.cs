@@ -1,6 +1,6 @@
 ﻿namespace GameClient
 {
-    class SpeedLevel : Level
+    public class SpeedLevel : Level
     {
     }
 }

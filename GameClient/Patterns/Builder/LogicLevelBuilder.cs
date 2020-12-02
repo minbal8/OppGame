@@ -12,7 +12,7 @@ namespace GameClient
     {
         public LogicLevelBuilder(Level level) : base(level) { }
 
-        public override void BuildButtonsAndValves()
+        public override Level BuildButtonsAndValves()
         {
             Console.WriteLine("Building buttons and valves ... ");
             string[] lines = File.ReadAllLines("Levels/LogicLevel/ButtonsAndValves.txt");
@@ -50,10 +50,10 @@ namespace GameClient
                     }
                 }
             }
-
+            return _level;
         }
 
-        public override void BuildInnerWalls()
+        public override Level BuildInnerWalls()
         {
             Console.WriteLine("Building inner walls ...");
             string[] lines = File.ReadAllLines("Levels/LogicLevel/LogicLevel.txt");
@@ -66,14 +66,16 @@ namespace GameClient
                 var y2 = int.Parse(coords[3]);
                 _level.AddPart(new Wall(new Point(x1, y1), new Point(x2, y2)));
             }
+            return _level;
         }
 
-        public override void BuildStartAndFinishAreas()
+        public override Level BuildStartAndFinishAreas()
         {
             Console.WriteLine("Building start and finish areas ... ");
+            return _level;
         }
 
-        public override void BuildTraps()
+        public override Level BuildTraps()
         {
             Console.WriteLine("Building traps ... ");
 
@@ -96,7 +98,7 @@ namespace GameClient
                 _level.AddPart(temp);
 
             }
-
+            return _level;
         }
     }
 }

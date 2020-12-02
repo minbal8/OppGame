@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GameClient
 {
-    class GameStateSingleton
+    public class GameStateSingleton
     {
         private static GameStateSingleton instance = new GameStateSingleton();
         private static readonly object padlock = new object();
