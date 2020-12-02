@@ -10,14 +10,26 @@ using System.Windows.Forms;
 namespace GameClient.Tests
 {
     [TestClass()]
-    public class DecoratorTests 
+    public class WearableTests
     {
         [TestMethod()]
         public void SkinTest()
         {
             PictureBox p = new PictureBox();
+
             Wearable hat = new Hat(p);
-            Assert.AreEqual("{X=0,Y=7}", hat.image.Location.ToString());
+            hat.ItemColor = new Red();
+
+            Wearable scarf = new Scarf_tmp(p);
+            scarf.ItemColor = new Blue();
+
+            DefaultSkin ds = new DefaultSkin();
+
+            hat.setSkin(ds);
+            scarf.setSkin(hat);
+            scarf.Skin();
+
+            Assert.AreEqual(2, p.Controls.Count);
         }
     }
 }

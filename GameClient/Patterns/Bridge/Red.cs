@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    class Red : ItemColor
+    public class Red : ItemColor
     {
         public override string Color()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    abstract class ItemColor
+    public abstract class ItemColor
     {
         public abstract string Color();
     }

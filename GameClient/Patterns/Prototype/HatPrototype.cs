@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    interface HatPrototype
+    public interface HatPrototype
     {
         HatPrototype Clone();
     }

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    abstract class Wearable : Decorator
+    public abstract class Wearable : Decorator
     {
 
         protected ItemColor itemColor;

@@ -5,19 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GameClient.Tests
 {
     [TestClass()]
-    public class DecoratorTests 
+    public class BlueTests
     {
         [TestMethod()]
-        public void SkinTest()
+        public void ColorTest()
         {
-            PictureBox p = new PictureBox();
-            Wearable hat = new Hat(p);
-            Assert.AreEqual("{X=0,Y=7}", hat.image.Location.ToString());
+            var blue = new Blue();
+            string returnedCollor = blue.Color() ;
+            string expectedValue = "Blue";
+
+            Assert.AreEqual(expectedValue, returnedCollor);
         }
     }
 }

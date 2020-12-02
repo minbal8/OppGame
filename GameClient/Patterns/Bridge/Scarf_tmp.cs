@@ -8,8 +8,9 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    class Scarf_tmp : Wearable
+    public class Scarf_tmp : Wearable
     {
+
         private PictureBox p;
 
         public Scarf_tmp(PictureBox player)

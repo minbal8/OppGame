@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    class Hat : Wearable, HatPrototype
+    public class Hat : Wearable, HatPrototype
     {
         private PictureBox p;
 

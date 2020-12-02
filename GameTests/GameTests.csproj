@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GameTests</RootNamespace>
     <AssemblyName>GameTests</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -20,6 +20,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,10 +49,16 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patterns\AbstractFactory\AbstractFactoryTests.cs" />
     <Compile Include="Patterns\Adapter\MapObjectAdapterTests.cs" />
+    <Compile Include="Patterns\Bridge\BlueTests.cs" />
+    <Compile Include="Patterns\Bridge\HatTests.cs" />
+    <Compile Include="Patterns\Bridge\RedTests.cs" />
+    <Compile Include="Patterns\Bridge\Scarf_tmpTests.cs" />
+    <Compile Include="Patterns\Bridge\WearableTests.cs" />
     <Compile Include="Patterns\Builder\LevelBuilderTests.cs" />
     <Compile Include="Patterns\Command\CommandTests.cs" />
     <Compile Include="Patterns\Command\LevelSelectTests.cs" />
