@@ -15,7 +15,10 @@ namespace GameClient.Tests
         [TestMethod()]
         public void ExecuteTest()
         {
-            Assert.Fail();
+            AbstractLevelFactory easy = new EasyLevelFactory();
+            LoadEasyLogicLevel easyLogicLevel = new LoadEasyLogicLevel(easy);
+            var temp = easyLogicLevel.Execute();
+            Assert.IsTrue(temp is LogicLevel);
         }
     }
 }
