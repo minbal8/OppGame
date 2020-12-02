@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    class TimedActivation : ButtonAlgorithm
+    public class TimedActivation : ButtonAlgorithm
     {
         public override int Activate()
         {
