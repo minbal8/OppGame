@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    class DefaultSkin : Skin
+    public class DefaultSkin : Skin
     {
         public void Skin()
         {

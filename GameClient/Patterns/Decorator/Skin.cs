@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    interface Skin
+    public interface Skin
     {
         void Skin();
     }

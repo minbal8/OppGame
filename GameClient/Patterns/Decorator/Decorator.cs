@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameClient
 {
-    abstract class Decorator : Skin
+    public abstract class Decorator : Skin
     {
         protected Skin skin;
 

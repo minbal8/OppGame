@@ -51,9 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patterns\AbstractFactory\AbstractFactoryTests.cs" />
+    <Compile Include="Patterns\Adapter\MapObjectAdapterTests.cs" />
     <Compile Include="Patterns\Builder\LevelBuilderTests.cs" />
+    <Compile Include="Patterns\Command\CommandTests.cs" />
+    <Compile Include="Patterns\Command\LevelSelectTests.cs" />
+    <Compile Include="Patterns\Decorator\DecoratorTests.cs" />
+    <Compile Include="Patterns\Facade\LevelTests.cs" />
     <Compile Include="Patterns\Factory\TrapFactoryTests.cs" />
     <Compile Include="Patterns\GameStateSingleton\SingletonTests.cs" />
+    <Compile Include="Patterns\Observer\ObserverTests.cs" />
+    <Compile Include="Patterns\Observer\SubjectTests.cs" />
+    <Compile Include="Patterns\Strategy\ButtonAlgorithmTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
