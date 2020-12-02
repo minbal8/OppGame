@@ -14,25 +14,38 @@ namespace GameClient.Tests
         [TestMethod()]
         public void LoadEasyLogicLevelTest()
         {
-            Assert.Fail();
+            AbstractLevelFactory easyLevelFactory = new EasyLevelFactory();
+            LoadEasyLogicLevel easyLogicLevel = new LoadEasyLogicLevel(easyLevelFactory);
+            var temp = easyLogicLevel.Execute();
+            Assert.IsTrue(temp is LogicLevel);
+
         }
 
         [TestMethod()]
         public void LoadEasySpeedLevelTest()
         {
-            Assert.Fail();
+            AbstractLevelFactory easyLevelFactory = new EasyLevelFactory();
+            LoadEasySpeedLevel easyLogicLevel = new LoadEasySpeedLevel(easyLevelFactory);
+            var temp = easyLogicLevel.Execute();
+            Assert.IsTrue(temp is SpeedLevel);
         }
 
         [TestMethod()]
         public void LoadHardLogicLevelTest()
         {
-            Assert.Fail();
+            AbstractLevelFactory easyLevelFactory = new HardLevelFactory();
+            LoadHardLogicLevel easyLogicLevel = new LoadHardLogicLevel(easyLevelFactory);
+            var temp = easyLogicLevel.Execute();
+            Assert.IsTrue(temp is LogicLevel);
         }
 
         [TestMethod()]
         public void LoadHardSpeedLevelTest()
         {
-            Assert.Fail();
+            AbstractLevelFactory easyLevelFactory = new HardLevelFactory();
+            LoadHardSpeedLevel easyLogicLevel = new LoadHardSpeedLevel(easyLevelFactory);
+            var temp = easyLogicLevel.Execute();
+            Assert.IsTrue(temp is SpeedLevel);
         }
     }
 }
