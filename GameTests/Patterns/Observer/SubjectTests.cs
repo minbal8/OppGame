@@ -19,7 +19,6 @@ namespace GameClient.Tests
             Valve valve = new Valve(new Point(5, 5), new Point(3, 2));
             button.Attach(valve);
             Assert.IsNotNull(button);
-
         }
 
         [TestMethod()]
