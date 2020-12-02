@@ -2,41 +2,57 @@
 
 namespace GameClient.Tests
 {
-    [TestClass()]
-    public class LevelBuilderTests
-    {
-        [TestMethod()]
-        public void BuildOuterWallsTest()
-        {
-            Level level = new LogicLevel();
-            LevelBuilder levelBuilder = new LogicLevelBuilder(level);
-            levelBuilder.BuildOuterWalls();
+	[TestClass()]
+	public class LevelBuilderTests
+	{
+		[TestMethod()]
+		public void BuildOuterWallsTest()
+		{
+			Level level = new LogicLevel();
+			LevelBuilder levelBuilder = new LogicLevelBuilder(level);
+			level = levelBuilder.BuildOuterWalls();
 
+			Assert.IsNotNull(level);
+		}
 
-        }
+		[TestMethod()]
+		public void BuildInnerWallsTest()
+		{
+			Level level = new LogicLevel();
+			LevelBuilder levelBuilder = new LogicLevelBuilder(level);
+			level = levelBuilder.BuildInnerWalls();
 
-        [TestMethod()]
-        public void BuildInnerWallsTest()
-        {
+			Assert.IsNotNull(level);
+		}
 
-        }
+		[TestMethod()]
+		public void BuildTrapsTest()
+		{
+			Level level = new LogicLevel();
+			LevelBuilder levelBuilder = new LogicLevelBuilder(level);
+			level = levelBuilder.BuildTraps();
 
-        [TestMethod()]
-        public void BuildTrapsTest()
-        {
+			Assert.IsNotNull(level);
+		}
 
-        }
+		[TestMethod()]
+		public void BuildButtonsAndValvesTest()
+		{
+			Level level = new LogicLevel();
+			LevelBuilder levelBuilder = new LogicLevelBuilder(level);
+			level = levelBuilder.BuildButtonsAndValves();
 
-        [TestMethod()]
-        public void BuildButtonsAndValvesTest()
-        {
+			Assert.IsNotNull(level);
+		}
 
-        }
+		[TestMethod()]
+		public void BuildStartAndFinishAreasTest()
+		{
+			Level level = new LogicLevel();
+			LevelBuilder levelBuilder = new LogicLevelBuilder(level);
+			level = levelBuilder.BuildStartAndFinishAreas();
 
-        [TestMethod()]
-        public void BuildStartAndFinishAreasTest()
-        {
-
-        }
-    }
+			Assert.IsNotNull(level);
+		}
+	}
 }
