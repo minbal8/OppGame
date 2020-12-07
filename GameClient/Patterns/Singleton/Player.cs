@@ -1,4 +1,6 @@
-﻿namespace GameClient
+﻿using System;
+
+namespace GameClient
 {
     public class Player
     {
@@ -6,6 +8,21 @@
 
         public int PosY { get; set; }
         public int Animation { get; set; }
+        private int Health = 100;
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health <= 0)
+            {
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            Console.WriteLine("PlayerDied");
+        }
 
 
         /*

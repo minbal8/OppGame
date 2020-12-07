@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace GameClient
 {
 
-    public class Trap
+    public abstract class Trap
     {
         public PictureBox picture;
 
@@ -31,6 +31,25 @@ namespace GameClient
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
+        public void TrapTemplate(PictureBox player)
+        {
+            UpdateTrapState();
+            if (CheckCollision(player.Location, player.Size))
+            {
+                DealDamage();
+            }
+        }
+
+        protected abstract void UpdateTrapState();
+        protected abstract void DealDamage();
+
+
+        private bool CheckCollision(Point location, Size size)
+        {
+            int right = location.X + size.Width, left = location.X, top = location.Y, bottom = location.Y + size.Height;
+            return right > picture.Left && picture.Right > left &&
+                 bottom > picture.Top && picture.Bottom > top;
+        }
     }
 
 }
