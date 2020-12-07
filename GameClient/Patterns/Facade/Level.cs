@@ -71,6 +71,11 @@ namespace GameClient
             return dy;
         }
 
+        public void CheckTraps()
+        {
+
+        }
+
         public void PressButton(PictureBox player)
         {
             foreach (var button in buttons)

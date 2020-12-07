@@ -18,8 +18,10 @@ namespace GameClient.Tests
         {
             Level level = new Level();
             level.AddPart(new Valve(new Point(0, 0), new Point(10, 1)) { PlayerID = 1 });
+            var oldValues = GameStateSingleton.getInstance().LocalValvesStates;
             level.UpdateValves(1);
-            Assert.IsTrue(GameStateSingleton.getInstance().LocalValvesStates.Count > 0);
+            var newValues = GameStateSingleton.getInstance().LocalValvesStates;
+            Assert.AreNotEqual(oldValues, newValues);
         }
 
 
@@ -65,9 +67,9 @@ namespace GameClient.Tests
 
             level.PressButton(player);
             Assert.IsTrue(button.CheckCollision(player.Location, player.Size));
-            
 
-            
+
+
         }
     }
 }

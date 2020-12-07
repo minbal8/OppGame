@@ -8,23 +8,29 @@ namespace GameClient
 {
     public class TrapFactory : Factory
     {
+        Flyweight trapFlyweight = new TrapFlyweight();
         public override Trap CreateTrap(int trapType, Point location, Point size)
         {
+            Trap returnTrap;
             switch (trapType)
             {
                 case 1:
-                    return new FallTrap(location, size);
-
+                    returnTrap = new FallTrap(location, size);
+                    break;
                 case 2:
-                    return new SawTrap(location, size);
-
+                    returnTrap = new SawTrap(location, size);
+                    break;
                 case 3:
-                    return new Spikes(location, size);
-
+                    returnTrap = new Spikes(location, size);
+                    break;
                 default:
-                    return null;
-
+                    returnTrap = null;
+                    break;
             }
+            returnTrap.GetType();
+            var image = trapFlyweight.getImage(returnTrap.GetType());
+            returnTrap.SetImage(image);
+            return returnTrap;
         }
 
     }

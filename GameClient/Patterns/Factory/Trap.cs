@@ -25,6 +25,12 @@ namespace GameClient
             picture.Location = upperLeft;
         }
 
+        public void SetImage(Image image)
+        {
+            picture.Image = image;
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
     }
 
 }

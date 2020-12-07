@@ -13,9 +13,12 @@ namespace GameClient
         protected List<Valve> valves = new List<Valve>();
         protected List<Button> buttons = new List<Button>();
         protected List<Trap> traps = new List<Trap>();
+        TrapAggregator trapAggregator;
+
 
         public void DrawLevel(ControlCollection controls)
         {
+
             foreach (var item in walls)
             {
                 controls.Add(item.image);
@@ -35,6 +38,8 @@ namespace GameClient
             {
                 controls.Add(item.image);
             }
+
+            trapAggregator = new TrapList(traps);
         }
     }
 }
