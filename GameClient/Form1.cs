@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using GameClient.Patterns.Interpreter;
 
 namespace GameClient
 {
@@ -22,6 +24,11 @@ namespace GameClient
 
         Level currentLevel;
         bool PressedUp, PressedBottom, PressedLeft, PressedRight, PressedE;
+        bool PressedZ, PressedX, PressedC, PressedV, Pressed1, Pressed2, Pressed3, Pressed4;
+        private string firstChar = "", secondChar = "";
+
+        private FirstChatUser c1;
+        private SecondChatUser c2;
 
         private float ActivationTimerCount = 1;
 
@@ -32,11 +39,23 @@ namespace GameClient
             clientPlayer = new Player();
             playerAnimator = new PlayerAnimator(Player1Picture, Player2Picture);
 
+            ChatScreen screen = new ChatScreen();
+            c1 = new FirstChatUser(screen);
+            screen.ChatUser1 = c1;
+            c2 = new SecondChatUser(screen);
+            screen.ChatUser2 = c2;
+
             timer1.Interval = 1000 / 60;
             timer1.Start();
         }
 
         #region PlayerInput
+
+        private void DescideInterp(string first, string second)
+        {
+            InterpreterTest(first + second);
+        }
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A) { PressedLeft = true; }
@@ -44,6 +63,30 @@ namespace GameClient
             if (e.KeyCode == Keys.W) { PressedUp = true; }
             if (e.KeyCode == Keys.S) { PressedBottom = true; }
             if (e.KeyCode == Keys.E) { PressedE = true; }
+            if (e.KeyCode == Keys.NumPad1) { firstChar = "1"; }
+            if (e.KeyCode == Keys.NumPad2) { firstChar = "2"; }
+            if (e.KeyCode == Keys.NumPad3) { firstChar = "3"; }
+            if (e.KeyCode == Keys.NumPad4) { firstChar = "4"; }
+            if (e.KeyCode == Keys.Z) { secondChar = "z"; }
+            if (e.KeyCode == Keys.X) { secondChar = "x"; }
+            if (e.KeyCode == Keys.C) { secondChar = "c"; }
+            if (e.KeyCode == Keys.V) { secondChar = "v"; }
+
+            if (ClientID == 1)
+            {
+                if (firstChar != "" && secondChar != "")
+                {
+                    c1.Send(InterpreterTest(firstChar + secondChar));
+                }
+            }
+            else
+            {
+                if (firstChar != "" && secondChar != "")
+                {
+                    c2.Send(InterpreterTest(firstChar + secondChar));
+                }
+            }
+
             e.Handled = true;
         }
 
@@ -54,6 +97,15 @@ namespace GameClient
             if (e.KeyCode == Keys.W) { PressedUp = false; }
             if (e.KeyCode == Keys.S) { PressedBottom = false; }
             if (e.KeyCode == Keys.E) { PressedE = false; }
+            if (e.KeyCode == Keys.NumPad1) { secondChar = ""; }
+            if (e.KeyCode == Keys.NumPad2) { secondChar = ""; }
+            if (e.KeyCode == Keys.NumPad3) { secondChar = ""; }
+            if (e.KeyCode == Keys.NumPad4) { secondChar = ""; }
+            if (e.KeyCode == Keys.Z) { firstChar = ""; }
+            if (e.KeyCode == Keys.X) { firstChar = ""; }
+            if (e.KeyCode == Keys.C) { firstChar = ""; }
+            if (e.KeyCode == Keys.V) { firstChar = ""; }
+
         }
         private void GetMovementValues()
         {
@@ -79,6 +131,12 @@ namespace GameClient
 
         private void UpdateGameState()
         {
+            ChatScreen screen = new ChatScreen();
+            FirstChatUser c1 = new FirstChatUser(screen);
+            screen.ChatUser1 = c1;
+            SecondChatUser c2 = new SecondChatUser(screen);
+            screen.ChatUser2 = c2;
+
             if (ActivationTimerCount > 0)
             {
                 ActivationTimerCount -= DeltaTime;
@@ -86,12 +144,22 @@ namespace GameClient
 
             if (ClientID == 1)
             {
+                //if (firstChar != "" && secondChar != "")
+                //{
+                //    c1.Send(InterpreterTest(firstChar + secondChar));
+                //}
+
                 clientPlayer.PosX = Player1Picture.Location.X;
                 clientPlayer.PosY = Player1Picture.Location.Y;
                 GameStateSingleton.getInstance().Player1 = clientPlayer;
             }
             if (ClientID == 2)
             {
+                //if (firstChar != "" && secondChar != "")
+                //{
+                //    c2.Send(InterpreterTest(firstChar + secondChar));
+                //}
+
                 clientPlayer.PosX = Player2Picture.Location.X;
                 clientPlayer.PosY = Player2Picture.Location.Y;
                 GameStateSingleton.getInstance().Player2 = clientPlayer;
@@ -221,6 +289,37 @@ namespace GameClient
             Focus();
             DecoratorTest();
             PrototypeTest();
+            //MediatorTest();
+        }
+
+        private void MediatorTest()
+        {
+            ChatScreen screen = new ChatScreen();
+
+            FirstChatUser c1 = new FirstChatUser(screen);
+            SecondChatUser c2 = new SecondChatUser(screen);
+
+            screen.ChatUser1 = c1;
+            screen.ChatUser2 = c2;
+
+            c1.Send(InterpreterTest("1z"));
+            c2.Send(InterpreterTest("2x"));
+        }
+
+        private string InterpreterTest(string sentence)
+        {
+            //string sentence = "1x";
+            Context context = new Context(sentence);
+            
+            List<SentenceExpression> sentenceExpressionList = new List<SentenceExpression>();
+            sentenceExpressionList.Add(new Verb());
+            sentenceExpressionList.Add(new Adverb());
+
+            foreach (SentenceExpression exp in sentenceExpressionList)
+            {
+                exp.Interpret(context);
+            }
+            return context.Output;
         }
 
         private void DecoratorTest()

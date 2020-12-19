@@ -66,6 +66,7 @@
     <Compile Include="Patterns\Facade\LevelTests.cs" />
     <Compile Include="Patterns\Factory\TrapFactoryTests.cs" />
     <Compile Include="Patterns\GameStateSingleton\SingletonTests.cs" />
+    <Compile Include="Patterns\Mediator\ChatMediator.cs" />
     <Compile Include="Patterns\Observer\ObserverTests.cs" />
     <Compile Include="Patterns\Observer\SubjectTests.cs" />
     <Compile Include="Patterns\Strategy\ButtonAlgorithmTests.cs" />
@@ -80,6 +81,7 @@
       <Name>GameClient</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
