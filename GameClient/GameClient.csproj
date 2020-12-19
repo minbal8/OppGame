@@ -152,6 +152,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GeneratedCode\" />
+    <Folder Include="Patterns\ChainOfResponsibility\" />
+    <Folder Include="Patterns\Composite\" />
+    <Folder Include="Patterns\Interpreter\" />
+    <Folder Include="Patterns\Mediator\" />
+    <Folder Include="Patterns\Memento\" />
+    <Folder Include="Patterns\Proxy\" />
+    <Folder Include="Patterns\Visitor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocketServer\SocketServer.csproj">

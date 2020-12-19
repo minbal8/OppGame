@@ -9,13 +9,13 @@ namespace GameClient
 {
     public abstract class PlayerState
     {
-        public PlayerState(string path)
+        public string PlayerID { get; set; }
+        public PlayerState(string id)
         {
-            stateImage = Image.FromFile(path);
+            PlayerID = id;
         }
-
         public Image stateImage { get; set; }
-        public abstract Image ChangeState();
+        public abstract PlayerState ChangeState(int animation);
 
     }
 }
