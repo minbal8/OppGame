@@ -11,7 +11,7 @@ namespace GameClient
         // Declare our worker thread
         private Thread workerThread = null;
 
-        private readonly Client client;
+        private readonly IClient client;
         private static string ipAddress = SocketServer.ServerProperties.ip;
         private static int port = SocketServer.ServerProperties.port;
         private bool connected = false;
@@ -22,7 +22,7 @@ namespace GameClient
         public SocketSyncer()
         {
             workerThread = new Thread(new ThreadStart(StartWorkerThread));
-            client = new Client(ipAddress, port);
+            client = new ProxyClient(ipAddress, port);
 
         }
 
