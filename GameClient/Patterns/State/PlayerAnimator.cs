@@ -10,8 +10,11 @@ namespace GameClient
 {
     class PlayerAnimator
     {
-        private Image RunningR, RunningL, StandR, StandL;
-        private Image RunningR2, RunningL2, StandR2, StandL2;
+        /*private Image RunningR, RunningL, StandR, StandL;
+        private Image RunningR2, RunningL2, StandR2, StandL2;*/
+
+        private PlayerState RunningR, RunningL, StandR, StandL;
+        private PlayerState RunningR2, RunningL2, StandR2, StandL2;
 
         private PictureBox player1PictureBox, player2PictureBox;
         private Player player1, player2;
@@ -23,15 +26,15 @@ namespace GameClient
 
         public PlayerAnimator(PictureBox p1, PictureBox p2)
         {            
-            RunningR = Image.FromFile("Images/RunningR.gif");
-            RunningL = Image.FromFile("Images/RunningL.gif");
-            StandR = Image.FromFile("Images/StandR.gif");
-            StandL = Image.FromFile("Images/StandL.gif");
+            RunningR = new RunningRightState("Images/RunningR.gif");
+            RunningL = new RunningLeftState("Images/RunningL.gif");
+            StandR = new StandRightState("Images/StandR.gif");
+            StandL = new StandLeftState("Images/StandL.gif");
 
-            RunningR2 = Image.FromFile("Images/RunningR2.gif");
-            RunningL2 = Image.FromFile("Images/RunningL2.gif");
-            StandR2 = Image.FromFile("Images/StandR2.gif");
-            StandL2 = Image.FromFile("Images/StandL2.gif");
+            RunningR2 = new RunningRightState("Images/RunningR2.gif");
+            RunningL2 = new RunningLeftState("Images/RunningL2.gif");
+            StandR2 = new StandRightState("Images/StandR2.gif");
+            StandL2 = new StandLeftState("Images/StandL2.gif");
 
             player1PictureBox = p1;
             player2PictureBox = p2;
@@ -91,18 +94,18 @@ namespace GameClient
 
             if (animation1 != lastAnimanion1)
             {
-                if (animation1 == 0) player1PictureBox.Image = RunningR;
-                if (animation1 == 1) player1PictureBox.Image = RunningL;
-                if (animation1 == 2) player1PictureBox.Image = StandR;
-                if (animation1 == 3) player1PictureBox.Image = StandL;
+                if (animation1 == 0) player1PictureBox.Image = RunningR.ChangeState();
+                if (animation1 == 1) player1PictureBox.Image = RunningL.ChangeState();
+                if (animation1 == 2) player1PictureBox.Image = StandR.ChangeState();
+                if (animation1 == 3) player1PictureBox.Image = StandL.ChangeState();
             }
 
             if (animation2 != lastAnimanion2)
             {
-                if (animation2 == 0) player2PictureBox.Image = RunningR2;
-                if (animation2 == 1) player2PictureBox.Image = RunningL2;
-                if (animation2 == 2) player2PictureBox.Image = StandR2;
-                if (animation2 == 3) player2PictureBox.Image = StandL2;
+                if (animation2 == 0) player2PictureBox.Image = RunningR2.ChangeState();
+                if (animation2 == 1) player2PictureBox.Image = RunningL2.ChangeState();
+                if (animation2 == 2) player2PictureBox.Image = StandR2.ChangeState();
+                if (animation2 == 3) player2PictureBox.Image = StandL2.ChangeState();
             }
 
             //***********************************************

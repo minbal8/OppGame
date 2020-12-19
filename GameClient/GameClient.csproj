@@ -74,6 +74,11 @@
     <Compile Include="Patterns\Iterator\TrapIterator.cs" />
     <Compile Include="Patterns\Iterator\TrapList.cs" />
     <Compile Include="Patterns\Prototype\HatPrototype.cs" />
+    <Compile Include="Patterns\State\PlayerState.cs" />
+    <Compile Include="Patterns\State\StandLeftState.cs" />
+    <Compile Include="Patterns\State\StandRightState.cs" />
+    <Compile Include="Patterns\State\RunningRightState.cs" />
+    <Compile Include="Patterns\State\RunningLeftState.cs" />
     <Compile Include="Patterns\Strategy\ButtonAlgorithm.cs" />
     <Compile Include="Patterns\Observer\Button.cs" />
     <Compile Include="Patterns\Strategy\CloseActivation.cs" />
@@ -113,7 +118,7 @@
     </Compile>
     <Compile Include="Patterns\Observer\Valve.cs" />
     <Compile Include="Patterns\Builder\Wall.cs" />
-    <Compile Include="PlayerAnimator.cs" />
+    <Compile Include="Patterns\State\PlayerAnimator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
