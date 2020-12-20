@@ -74,7 +74,6 @@ namespace GameClient
                 if (firstChar != "" && secondChar != "")
                 {
                     c1.Send(InterpreterTest(firstChar + secondChar));
-                    GameStateSingleton.getInstance().Player1.Message = firstChar + secondChar;
                 }
             }
             else
@@ -82,7 +81,6 @@ namespace GameClient
                 if (firstChar != "" && secondChar != "")
                 {
                     c2.Send(InterpreterTest(firstChar + secondChar));
-                    GameStateSingleton.getInstance().Player2.Message = firstChar + secondChar;
                 }
             }
 
