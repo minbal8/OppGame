@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -79,11 +80,16 @@ namespace GameClient
         {
             Console.WriteLine("Building traps ... ");
 
-            Factory trapFactory = new TrapFactory();
+            Stopwatch sw = new Stopwatch();
+            Process proc = Process.GetCurrentProcess();
+            sw.Start();
 
+            Factory trapFactory = new TrapFactory();
+            int trapCount = 0;
             string[] lines = File.ReadAllLines("Levels/LogicLevel/Traps.txt");
             foreach (var item in lines)
             {
+                trapCount++;
                 string[] coords = item.Split(',');
                 var type = int.Parse(coords[0]);
                 var x1 = int.Parse(coords[1]);
@@ -98,6 +104,12 @@ namespace GameClient
                 _level.AddPart(temp);
 
             }
+
+            sw.Stop();
+            Console.WriteLine("Number of traps created: " + trapCount);
+            Console.WriteLine("Time elapsed: " + sw.Elapsed + " ms");
+            Console.WriteLine("Memory used: " + proc.PrivateMemorySize64 + " ");
+
             return _level;
         }
     }

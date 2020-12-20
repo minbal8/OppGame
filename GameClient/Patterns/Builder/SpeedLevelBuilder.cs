@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 
@@ -41,8 +42,7 @@ namespace GameClient
 		public override Level BuildTraps()
 		{
 			Console.WriteLine("Building traps ... ");
-
-			Factory trapFactory = new TrapFactory();
+            Factory trapFactory = new TrapFactory();
 
 			string[] lines = File.ReadAllLines("Levels/SpeedLevel/Traps.txt");
 			foreach (var item in lines)

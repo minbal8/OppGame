@@ -8,7 +8,7 @@ namespace GameClient
 {
     public class TrapFactory : Factory
     {
-        Flyweight trapFlyweight = new TrapFlyweight();
+        TrapFlyweight trapFlyweight = new TrapFlyweight();
         public override Trap CreateTrap(int trapType, Point location, Point size)
         {
             Trap returnTrap;
@@ -27,8 +27,9 @@ namespace GameClient
                     returnTrap = null;
                     break;
             }
-            returnTrap.GetType();
+
             var image = trapFlyweight.getImage(returnTrap.GetType());
+            //var image = trapFlyweight.getImage2(returnTrap.GetType()); // Greitaveikos testui metodas be Flyweight
             returnTrap.SetImage(image);
             return returnTrap;
         }

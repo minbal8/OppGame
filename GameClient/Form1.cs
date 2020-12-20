@@ -24,7 +24,6 @@ namespace GameClient
 
         Level currentLevel;
         bool PressedUp, PressedBottom, PressedLeft, PressedRight, PressedE;
-        bool PressedZ, PressedX, PressedC, PressedV, Pressed1, Pressed2, Pressed3, Pressed4;
         private string firstChar = "", secondChar = "";
 
         private FirstChatUser c1;
@@ -327,8 +326,8 @@ namespace GameClient
             VisitorTest();
             //CompositeTest();
             //MediatorTest();
-            ChainOfResponsibility();
-            MementoTest();
+            //ChainOfResponsibility();
+            //MementoTest();
         }
 
         private void MementoTest()
@@ -453,6 +452,7 @@ namespace GameClient
             win.SetSuccessor(loose);
             loose.SetSuccessor(win);
 
+            // 0 - Player died, 1 - PLayer passed the level.
             int[] lostOrWon = { 0, 0, 1, 1, 0, 1, 1, 1, 0, 1 };
 
             foreach (int status in lostOrWon)
