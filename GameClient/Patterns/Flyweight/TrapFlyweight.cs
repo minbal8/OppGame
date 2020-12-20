@@ -16,9 +16,15 @@ namespace GameClient
         {
             if (!images.ContainsKey(trapType))
             {
-                images.Add(trapType, Image.FromFile("Images/"+ trapType.Name + ".png"));
+                images.Add(trapType, Image.FromFile("Images/" + trapType.Name + ".png"));
             }
             return images[trapType];
+        }
+
+        public Image getImage2(Type trapType)
+        {
+            return Image.FromFile("Images/" + trapType.Name + ".png");
+
         }
     }
 }
