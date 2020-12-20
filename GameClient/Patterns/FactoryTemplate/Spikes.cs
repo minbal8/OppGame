@@ -30,7 +30,7 @@ namespace GameClient
         protected sealed override void DealDamage()
         {
 
-            GameStateSingleton.getInstance().DealDamageToPlayer(30);
+            GameStateSingleton.getInstance().DealDamageToPlayer(10);
             timeOnTrap = 0;
         }
 
