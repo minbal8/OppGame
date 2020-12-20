@@ -20,7 +20,7 @@ namespace GameClient
 
         public void Notify(string message)
         {
-            GameStateSingleton.getInstance().Player2.Message = message;
+            GameStateSingleton.getInstance().Player2.Message = "Player2 sent message: " + message;
         }
     }
 }
