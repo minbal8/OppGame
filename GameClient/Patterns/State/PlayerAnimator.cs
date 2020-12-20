@@ -24,7 +24,7 @@ namespace GameClient
         public PlayerAnimator(PictureBox p1, PictureBox p2)
         {
             player1State = new StandLeftState("");
-            player2State = new StandLeftState("2");
+            player2State = new StandRightState("2");
 
 
             player1PictureBox = p1;
@@ -100,7 +100,7 @@ namespace GameClient
                 if (animation1 == 2) player2State = player2State.ChangeState(2);
                 if (animation1 == 3) player2State = player2State.ChangeState(3);
 
-                player1PictureBox.Image = player2State.stateImage;
+                player2PictureBox.Image = player2State.stateImage;
             }
 
 
