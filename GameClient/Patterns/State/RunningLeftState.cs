@@ -9,12 +9,27 @@ namespace GameClient
 {
     class RunningLeftState : PlayerState
     {
-        public RunningLeftState(string imagePath) : base(imagePath)
-        { }
-
-        public override Image ChangeState()
+        public RunningLeftState(string PlayerID) : base(PlayerID)
         {
-            return stateImage;
+            stateImage = Image.FromFile("Images/RunningL" + PlayerID + ".gif");
+        }
+
+        public override PlayerState ChangeState(int i)
+        {
+            switch (i)
+            {
+                case 0:
+                    return new RunningRightState(PlayerID);
+                case 1:
+                    return new RunningLeftState(PlayerID);
+                case 2:
+                    return new StandRightState(PlayerID);
+                case 3:
+                    return new StandLeftState(PlayerID);
+                default:
+                    return new StandRightState(PlayerID);
+            }
+
         }
     }
 }

@@ -5,14 +5,14 @@ using System.Text;
 
 namespace GameClient
 {
-    public class Client
+    public class RealClient : IClient
     {
 
         IPEndPoint localEndPoint;
         IPAddress ipAddress;
         Socket handler;
 
-        public Client(string ip, int port)
+        public RealClient(string ip, int port)
         {
             ipAddress = IPAddress.Parse(ip);
             localEndPoint = new IPEndPoint(ipAddress, port);

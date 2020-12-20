@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OnlineCommunication\Client.cs" />
+    <Compile Include="Patterns\Proxy\RealClient.cs" />
     <Compile Include="OnlineCommunication\ValveSync.cs" />
     <Compile Include="Patterns\Adapter\MapObjectAdapter.cs" />
     <Compile Include="Patterns\Bridge\Blue.cs" />
@@ -83,6 +83,8 @@
     <Compile Include="Patterns\Mediator\FirstChatUser.cs" />
     <Compile Include="Patterns\Mediator\SecondChatUser.cs" />
     <Compile Include="Patterns\Prototype\HatPrototype.cs" />
+    <Compile Include="Patterns\Proxy\IClient.cs" />
+    <Compile Include="Patterns\Proxy\ProxyClient.cs" />
     <Compile Include="Patterns\State\PlayerState.cs" />
     <Compile Include="Patterns\State\StandLeftState.cs" />
     <Compile Include="Patterns\State\StandRightState.cs" />
@@ -161,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GeneratedCode\" />
+    <Folder Include="Patterns\ChainOfResponsibility\" />
+    <Folder Include="Patterns\Composite\" />
+    <Folder Include="Patterns\Interpreter\" />
+    <Folder Include="Patterns\Mediator\" />
+    <Folder Include="Patterns\Memento\" />
+    <Folder Include="Patterns\Visitor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocketServer\SocketServer.csproj">
