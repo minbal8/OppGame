@@ -164,7 +164,7 @@ namespace GameClient
                 clientPlayer.PosY = Player2Picture.Location.Y;
                 GameStateSingleton.getInstance().Player2 = clientPlayer;
             }
-            
+
             if (currentLevel != null)
                 currentLevel.UpdateValves(ClientID);
 
@@ -289,7 +289,25 @@ namespace GameClient
             Focus();
             DecoratorTest();
             PrototypeTest();
+            VisitorTest();
             //MediatorTest();
+        }
+
+        private void VisitorTest()
+        {
+            Visitor playerVisitor = new PlayerVisitor();
+            Visitor spectatorVisitor = new SpectatorVisitor();
+
+            Level speed = new SpeedLevel();
+            Level logic = new LogicLevel();
+
+            speed.Accept(playerVisitor);
+            speed.Accept(spectatorVisitor);
+
+            logic.Accept(playerVisitor);
+            logic.Accept(spectatorVisitor);
+
+
         }
 
         private void MediatorTest()
@@ -310,7 +328,7 @@ namespace GameClient
         {
             //string sentence = "1x";
             Context context = new Context(sentence);
-            
+
             List<SentenceExpression> sentenceExpressionList = new List<SentenceExpression>();
             sentenceExpressionList.Add(new Verb());
             sentenceExpressionList.Add(new Adverb());

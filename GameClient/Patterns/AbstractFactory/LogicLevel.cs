@@ -10,5 +10,16 @@ namespace GameClient
         {
             
         }
+
+        public override void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public string ConcreteLogicLevelMethod()
+        {
+            return "Returned string from Logic level";
+        }
+
     }
 }

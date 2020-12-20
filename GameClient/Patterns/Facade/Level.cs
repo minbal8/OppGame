@@ -76,6 +76,11 @@ namespace GameClient
 
         }
 
+        public virtual void Accept(Visitor visitor)
+        {
+
+        }
+
         public void PressButton(PictureBox player)
         {
             foreach (var button in buttons)

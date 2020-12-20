@@ -10,12 +10,12 @@ namespace GameClient
     {
         public override void Visit(SpeedLevel level)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Spectator visitor: " + level.ConcreteSpeedLevelMethod());
         }
 
         public override void Visit(LogicLevel level)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Spectator visitor: " + level.ConcreteLogicLevelMethod());
         }
     }
 }
