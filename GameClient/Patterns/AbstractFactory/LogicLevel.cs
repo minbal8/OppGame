@@ -6,9 +6,14 @@ namespace GameClient
 {
     public class LogicLevel : Level
     {
-        public LogicLevel()
+        public LogicLevel(string name) : base(name)
         {
             
+        }
+
+        public LogicLevel() : this("Logic Level")
+        {
+
         }
 
         public override void Accept(Visitor visitor)

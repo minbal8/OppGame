@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameClient
 {
-    abstract class LevelComposition
+    public abstract class LevelComposition
     {
 
         protected string name;
@@ -18,6 +18,6 @@ namespace GameClient
 
         public abstract void Add(LevelComposition c);
         public abstract void Remove(LevelComposition c);
-        public abstract void GetChild(int depth);
+        public abstract void DisplayTree(int depth);
     }
 }

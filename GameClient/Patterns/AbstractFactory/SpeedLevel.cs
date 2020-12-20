@@ -2,7 +2,12 @@
 {
     public class SpeedLevel : Level
     {
-        public SpeedLevel()
+        public SpeedLevel(string name) : base(name)
+        {
+
+        }
+
+        public SpeedLevel() : this("Speed level")
         {
 
         }

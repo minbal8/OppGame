@@ -26,12 +26,13 @@ namespace GameClient
             _children.Remove(c);
         }
 
-        public override void GetChild(int depth)
+        public override void DisplayTree(int depth)
         {
+            Console.WriteLine(new String('-', depth) + name);
             // Recursively display child nodes
             foreach (LevelComposition component in _children)
             {
-                component.GetChild(depth + 2);
+                component.DisplayTree(depth + 2);
             }
         }
     }

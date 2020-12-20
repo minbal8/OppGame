@@ -10,13 +10,18 @@ using static System.Windows.Forms.Control;
 */
 namespace GameClient
 {
-    public class Level
+    public class Level : LevelComposition
     {
         protected List<ValveSync> valveSync = new List<ValveSync>();
         MapObjectAdapter map = new MapObjectAdapter();
 
         public int length { get; set; }
         public int width { get; set; }
+
+        public Level(string name) : base(name)
+        {
+
+        }
 
         public void UpdateValves(int id)
         {
@@ -127,10 +132,25 @@ namespace GameClient
             map.buttons.Add(button);
         }
 
-        
+
         #endregion
 
         #region LevelAsLeaf
+
+        public override void Add(LevelComposition c)
+        {
+            Console.WriteLine("Cannot add to a leaf");
+        }
+
+        public override void Remove(LevelComposition c)
+        {
+            Console.WriteLine("Cannot remove from a leaf");
+        }
+
+        public override void DisplayTree(int depth)
+        {
+            Console.WriteLine(new String('-', depth) + name);
+        }
 
         #endregion
 

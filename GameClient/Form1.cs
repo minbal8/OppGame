@@ -301,6 +301,7 @@ namespace GameClient
             DecoratorTest();
             PrototypeTest();
             VisitorTest();
+            //CompositeTest();
             //MediatorTest();
         }
 
@@ -382,5 +383,27 @@ namespace GameClient
             Hat cloneHat = (Hat)hat.Clone();
             Console.WriteLine("Clone: {0}", cloneHat.GetPlayerPosition());
         }
+
+
+        private void CompositeTest()
+        {
+            // Create a tree structure
+
+            LevelComposite root = new LevelComposite("Menu");
+
+            LevelComposite comp = new LevelComposite("Speed Levels");
+            comp.Add(new Level("EasySpeedLevel"));
+            comp.Add(new Level("HardSpeedLevel"));
+            root.Add(comp);
+
+            LevelComposite comp1 = new LevelComposite("Logic Levels");
+            comp1.Add(new Level("EasyLogicLevel"));
+            comp1.Add(new Level("HardLogicLevel"));
+            root.Add(comp1);
+
+            // Recursively display tree
+            root.DisplayTree(1);
+        }
+
     }
 }
