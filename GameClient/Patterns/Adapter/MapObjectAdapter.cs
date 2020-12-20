@@ -9,11 +9,11 @@ namespace GameClient
 {
     public class MapObjectAdapter
     {
-        protected List<Wall> walls = new List<Wall>();
-        protected List<Valve> valves = new List<Valve>();
-        protected List<Button> buttons = new List<Button>();
-        protected List<Trap> traps = new List<Trap>();
-        TrapAggregator trapAggregator;
+        public List<Wall> walls = new List<Wall>();
+        public List<Valve> valves = new List<Valve>();
+        public List<Button> buttons = new List<Button>();
+        public List<Trap> traps = new List<Trap>();
+        
 
 
         public void DrawLevel(ControlCollection controls)
@@ -39,7 +39,6 @@ namespace GameClient
                 controls.Add(item.image);
             }
 
-            trapAggregator = new TrapList(traps);
         }
     }
 }

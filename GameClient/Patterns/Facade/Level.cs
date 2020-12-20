@@ -10,9 +10,10 @@ using static System.Windows.Forms.Control;
 */
 namespace GameClient
 {
-    public class Level : MapObjectAdapter
+    public class Level
     {
         protected List<ValveSync> valveSync = new List<ValveSync>();
+        MapObjectAdapter map = new MapObjectAdapter();
 
         public int length { get; set; }
         public int width { get; set; }
@@ -25,28 +26,33 @@ namespace GameClient
                 valveSync = tempStates;
             }
 
-            for (int i = 0; i < valves.Count; i++)
+            for (int i = 0; i < map.valves.Count; i++)
             {
-                if (valves[i].PlayerID == id)
+                if (map.valves[i].PlayerID == id)
                 {
-                    valveSync[i].State = valves[i].GetState();
+                    valveSync[i].State = map.valves[i].GetState();
                 }
-                valves[i].SetState(valveSync[i].State);
+                map.valves[i].SetState(valveSync[i].State);
             }
 
             GameStateSingleton.getInstance().LocalValvesStates = valveSync;
         }
 
+        public void DrawLevel(ControlCollection controls)
+        {
+            map.DrawLevel(controls);
+        }
+
         #region Collisions
         public int CheckHorizontalCollisions(int dx, PictureBox player, int stepSize)
         {
-            foreach (var item in walls)
+            foreach (var item in map.walls)
             {
                 if (dx < 0 && item.CheckLeft(player, stepSize)) { dx = 0; }
                 if (dx > 0 && item.CheckRight(player, stepSize)) { dx = 0; }
             }
 
-            foreach (var item in valves)
+            foreach (var item in map.valves)
             {
                 if (dx < 0 && item.CheckLeft(player, stepSize)) { dx = 0; }
                 if (dx > 0 && item.CheckRight(player, stepSize)) { dx = 0; }
@@ -56,13 +62,13 @@ namespace GameClient
 
         public int CheckVerticalCollisions(int dy, PictureBox player, int stepSize)
         {
-            foreach (var item in walls)
+            foreach (var item in map.walls)
             {
                 if (dy < 0 && item.CheckTop(player, stepSize)) { dy = 0; }
                 if (dy > 0 && item.CheckBottom(player, stepSize)) { dy = 0; }
             }
 
-            foreach (var item in valves)
+            foreach (var item in map.valves)
             {
                 if (dy < 0 && item.CheckTop(player, stepSize)) { dy = 0; }
                 if (dy > 0 && item.CheckBottom(player, stepSize)) { dy = 0; }
@@ -73,7 +79,7 @@ namespace GameClient
 
         public void CheckTraps(PictureBox player)
         {
-            foreach (var item in traps)
+            foreach (var item in map.traps)
             {
                 item.TrapTemplate(player);
             }
@@ -85,7 +91,7 @@ namespace GameClient
 
         public void PressButton(PictureBox player)
         {
-            foreach (var button in buttons)
+            foreach (var button in map.buttons)
             {
                 if (button.CheckCollision(player.Location, player.Size))
                 {
@@ -99,12 +105,12 @@ namespace GameClient
 
         public void AddPart(Wall wall)
         {
-            walls.Add(wall);
+            map.walls.Add(wall);
         }
 
         public void AddPart(Trap trap)
         {
-            traps.Add(trap);
+            map.traps.Add(trap);
         }
 
         public void AddPart(Valve valve)
@@ -113,13 +119,15 @@ namespace GameClient
             temp.State = valve.GetState();
             temp.PlayerID = valve.PlayerID;
             valveSync.Add(temp);
-            valves.Add(valve);
+            map.valves.Add(valve);
         }
 
         public void AddPart(Button button)
         {
-            buttons.Add(button);
+            map.buttons.Add(button);
         }
+
+        
         #endregion
 
         #region LevelAsLeaf
