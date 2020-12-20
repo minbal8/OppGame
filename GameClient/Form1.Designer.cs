@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chatTextField = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player2Picture)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +100,22 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Player2Health";
             // 
+            // chatTextField
+            // 
+            this.chatTextField.Enabled = false;
+            this.chatTextField.Location = new System.Drawing.Point(22, 743);
+            this.chatTextField.Name = "chatTextField";
+            this.chatTextField.ReadOnly = true;
+            this.chatTextField.Size = new System.Drawing.Size(1240, 77);
+            this.chatTextField.TabIndex = 10;
+            this.chatTextField.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 721);
+            this.ClientSize = new System.Drawing.Size(1274, 832);
+            this.Controls.Add(this.chatTextField);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -129,6 +141,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox chatTextField;
     }
 }
 

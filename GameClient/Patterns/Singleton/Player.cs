@@ -9,6 +9,7 @@ namespace GameClient
         public int PosY { get; set; }
         public int Animation { get; set; }
         public int Health = 100;
+        public string Message = "";
 
         public void TakeDamage(int damage)
         {
@@ -16,7 +17,7 @@ namespace GameClient
             if (Health <= 0)
             {
                 Die();
-            }            
+            }
         }
 
         private void Die()

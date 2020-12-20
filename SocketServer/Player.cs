@@ -13,6 +13,8 @@ namespace SocketServer
 
         public int Health = 100;
 
+        public string Message = "";
+
         public int Animation { get; set; }
 
         private PropertyInfo[] _PropertyInfos = null;

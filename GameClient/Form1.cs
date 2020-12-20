@@ -51,10 +51,7 @@ namespace GameClient
 
         #region PlayerInput
 
-        private void DescideInterp(string first, string second)
-        {
-            InterpreterTest(first + second);
-        }
+        
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -77,6 +74,7 @@ namespace GameClient
                 if (firstChar != "" && secondChar != "")
                 {
                     c1.Send(InterpreterTest(firstChar + secondChar));
+                    GameStateSingleton.getInstance().Player1.Message = firstChar + secondChar;
                 }
             }
             else
@@ -84,6 +82,7 @@ namespace GameClient
                 if (firstChar != "" && secondChar != "")
                 {
                     c2.Send(InterpreterTest(firstChar + secondChar));
+                    GameStateSingleton.getInstance().Player2.Message = firstChar + secondChar;
                 }
             }
 
@@ -125,6 +124,7 @@ namespace GameClient
             CheckCollisions();
             UpdatePlayerPositions();
             UpdateGameState();
+            CheckForMessages();
             playerAnimator.Update();
         }
 
@@ -149,9 +149,9 @@ namespace GameClient
                 //    c1.Send(InterpreterTest(firstChar + secondChar));
                 //}
 
-                
 
-                clientPlayer = GameStateSingleton.getInstance().Player1;                
+
+                clientPlayer = GameStateSingleton.getInstance().Player1;
                 clientPlayer.PosX = Player1Picture.Location.X;
                 clientPlayer.PosY = Player1Picture.Location.Y;
                 GameStateSingleton.getInstance().Player1 = clientPlayer;
@@ -176,6 +176,32 @@ namespace GameClient
 
             label1.Text = "Player1: " + GameStateSingleton.getInstance().Player1.Health;
             label2.Text = "Player2: " + GameStateSingleton.getInstance().Player2.Health;
+        }
+
+        private void CheckForMessages()
+        {
+
+            string message1 = GameStateSingleton.getInstance().Player1.Message;
+            string message2 = GameStateSingleton.getInstance().Player2.Message;
+
+            chatTextField.Text = "";
+            if (message1.Length > 0)
+            {
+                var temp = message1;
+                // some magic happens here with temp
+
+
+                chatTextField.Text += temp + "\n";
+            }
+
+            if (message2.Length > 0)
+            {
+                var temp = message2;
+                // some magic happens here with temp
+
+                chatTextField.Text += temp;
+            }
+
 
         }
 
