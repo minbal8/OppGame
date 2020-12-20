@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patterns\ChainOfResponsibility\Handler.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\NextLevelHandler.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\ReturnToLevelHandler.cs" />
     <Compile Include="Patterns\Composite\LevelComposite.cs" />
     <Compile Include="Patterns\Composite\LevelComposition.cs" />
     <Compile Include="Patterns\Proxy\RealClient.cs" />
@@ -168,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GeneratedCode\" />
-    <Folder Include="Patterns\ChainOfResponsibility\" />
     <Folder Include="Patterns\Memento\" />
   </ItemGroup>
   <ItemGroup>

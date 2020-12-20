@@ -48,6 +48,11 @@ namespace GameClient
             map.DrawLevel(controls);
         }
 
+        public virtual void Accept(Visitor visitor)
+        {
+
+        }
+
         #region Collisions
         public int CheckHorizontalCollisions(int dx, PictureBox player, int stepSize)
         {
@@ -88,10 +93,6 @@ namespace GameClient
             {
                 item.TrapTemplate(player);
             }
-        }
-
-        public virtual void Accept(Visitor visitor)
-        {
         }
 
         public void PressButton(PictureBox player)

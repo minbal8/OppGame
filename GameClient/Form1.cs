@@ -329,6 +329,7 @@ namespace GameClient
             VisitorTest();
             //CompositeTest();
             //MediatorTest();
+            ChainOfResponsibility();
         }
 
         private void VisitorTest()
@@ -429,6 +430,21 @@ namespace GameClient
 
             // Recursively display tree
             root.DisplayTree(1);
+        }
+
+        private void ChainOfResponsibility()
+        {
+            Handler win = new NextLevelHandler();
+            Handler loose = new ReturnToLevelHandler();
+            win.SetSuccessor(loose);
+            loose.SetSuccessor(win);
+
+            int[] lostOrWon = { 0, 0, 1, 1, 0, 1, 1, 1, 0, 1 };
+
+            foreach (int status in lostOrWon)
+            {
+                win.HandleRequest(status);
+            }
         }
 
     }
