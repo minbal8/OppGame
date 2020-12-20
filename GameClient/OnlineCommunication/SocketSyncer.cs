@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 
 namespace GameClient
@@ -23,6 +24,7 @@ namespace GameClient
         {
             workerThread = new Thread(new ThreadStart(StartWorkerThread));
             client = new ProxyClient(ipAddress, port);
+            //client = new RealClient(ipAddress, port);
 
         }
 
@@ -44,7 +46,17 @@ namespace GameClient
 
         public void StartWorkerThread()
         {
+            Stopwatch sw = new Stopwatch();
+            Process proc = Process.GetCurrentProcess();
+            sw.Start();
+
             connected = client.Connect();
+
+            sw.Stop();
+            Console.WriteLine("Proxy greitaveika.");
+            Console.WriteLine("Time elapsed: " + sw.Elapsed + " ms");
+            Console.WriteLine("Memory used: " + proc.PrivateMemorySize64 + " ");
+
             while (true)
             {
                 UpdateData();
