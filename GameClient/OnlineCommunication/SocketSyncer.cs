@@ -71,9 +71,6 @@ namespace GameClient
         private void UpdateValveInformation()
         {
             item.valves = GameStateSingleton.getInstance().LocalValvesStates;
-
-            
-
         }
 
         private void UpdatePlayerInformation()
@@ -87,6 +84,7 @@ namespace GameClient
         {
             var result = client.WaitForReply();
             var _item = JsonConvert.DeserializeObject<SyncObject>(result);
+            
 
             GameStateSingleton.getInstance().Player2 = _item.Player2;
             GameStateSingleton.getInstance().Player1 = _item.Player1;
@@ -94,7 +92,7 @@ namespace GameClient
             GameStateSingleton.getInstance().LevelID = _item.levelID;
             GameStateSingleton.getInstance().SyncedValvesStates = _item.valves;
 
-            
+
         }
     }
 }

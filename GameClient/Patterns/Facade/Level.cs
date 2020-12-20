@@ -71,14 +71,16 @@ namespace GameClient
             return dy;
         }
 
-        public void CheckTraps()
+        public void CheckTraps(PictureBox player)
         {
-
+            foreach (var item in traps)
+            {
+                item.TrapTemplate(player);
+            }
         }
 
         public virtual void Accept(Visitor visitor)
         {
-
         }
 
         public void PressButton(PictureBox player)

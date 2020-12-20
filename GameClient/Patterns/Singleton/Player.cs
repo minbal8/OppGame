@@ -8,15 +8,15 @@ namespace GameClient
 
         public int PosY { get; set; }
         public int Animation { get; set; }
-        private int Health = 100;
+        public int Health = 100;
 
         public void TakeDamage(int damage)
         {
-            Health -= damage;
+            Health = Health - damage;
             if (Health <= 0)
             {
                 Die();
-            }
+            }            
         }
 
         private void Die()

@@ -10,6 +10,9 @@ namespace SocketServer
 
         public int PosY { get; set; }
 
+
+        public int Health = 100;
+
         public int Animation { get; set; }
 
         private PropertyInfo[] _PropertyInfos = null;

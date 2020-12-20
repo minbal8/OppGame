@@ -17,6 +17,11 @@ namespace GameClient
         int coordinateY { get { return picture.Location.Y; } }
 
 
+        protected float deltaTime = Form1.DeltaTime;
+        protected bool isOnTrap = false;
+        protected float timeOnTrap = 0;
+        protected bool isDamaging = false;
+
         public Trap(Point upperLeft, Point bottomRight)
         {
             Size size = new Size(bottomRight.X - upperLeft.X, bottomRight.Y - upperLeft.Y);
@@ -33,8 +38,12 @@ namespace GameClient
 
         public void TrapTemplate(PictureBox player)
         {
-            UpdateTrapState();
+
             if (CheckCollision(player.Location, player.Size))
+            { CalculateTime(); }
+            else { timeOnTrap = 0; }
+            UpdateTrapState();
+            if (isDamaging)
             {
                 DealDamage();
             }
@@ -42,6 +51,10 @@ namespace GameClient
 
         protected abstract void UpdateTrapState();
         protected abstract void DealDamage();
+        protected virtual void CalculateTime()
+        {            
+            timeOnTrap += deltaTime;
+        }
 
 
         private bool CheckCollision(Point location, Size size)

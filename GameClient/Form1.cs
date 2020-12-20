@@ -14,7 +14,7 @@ namespace GameClient
         private int ClientID = 0;
 
         private static int FPS = 60;
-        private float DeltaTime = (1 / (float)FPS);
+        public static float DeltaTime = (1 / (float)FPS);
 
         private Player clientPlayer;
         private Player friendPlayer;
@@ -149,6 +149,9 @@ namespace GameClient
                 //    c1.Send(InterpreterTest(firstChar + secondChar));
                 //}
 
+                
+
+                clientPlayer = GameStateSingleton.getInstance().Player1;                
                 clientPlayer.PosX = Player1Picture.Location.X;
                 clientPlayer.PosY = Player1Picture.Location.Y;
                 GameStateSingleton.getInstance().Player1 = clientPlayer;
@@ -160,13 +163,19 @@ namespace GameClient
                 //    c2.Send(InterpreterTest(firstChar + secondChar));
                 //}
 
+                clientPlayer = GameStateSingleton.getInstance().Player2;
                 clientPlayer.PosX = Player2Picture.Location.X;
                 clientPlayer.PosY = Player2Picture.Location.Y;
                 GameStateSingleton.getInstance().Player2 = clientPlayer;
+
             }
 
             if (currentLevel != null)
                 currentLevel.UpdateValves(ClientID);
+
+
+            label1.Text = "Player1: " + GameStateSingleton.getInstance().Player1.Health;
+            label2.Text = "Player2: " + GameStateSingleton.getInstance().Player2.Health;
 
         }
 
@@ -189,6 +198,8 @@ namespace GameClient
         {
             dx = currentLevel.CheckHorizontalCollisions(dx, playerPicture, StepSize);
             dy = currentLevel.CheckVerticalCollisions(dy, playerPicture, StepSize);
+
+            currentLevel.CheckTraps(playerPicture);
 
             if (PressedE && ActivationTimerCount <= 0)
             {

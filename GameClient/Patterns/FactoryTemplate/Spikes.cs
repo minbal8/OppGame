@@ -6,32 +6,35 @@ using System.Drawing;
 */
 namespace GameClient
 {
-	public class Spikes : Trap
-	{
-		public int state { get; set; }
+    public class Spikes : Trap
+    {
 
-		public Spikes(Point upperLeft, Point bottomRight) : base(upperLeft, bottomRight)
-		{
-			picture.BackColor = Color.DarkGray;
-		}
 
-        protected sealed override void DealDamage()
+        public Spikes(Point upperLeft, Point bottomRight) : base(upperLeft, bottomRight)
         {
-            int id = GameStateSingleton.getInstance().ClientID;
-            if (id == 1)
-            {
-                GameStateSingleton.getInstance().Player1.TakeDamage(10);
-            }
-            if (id == 2)
-            {
-                GameStateSingleton.getInstance().Player2.TakeDamage(10);
-            }
+            picture.BackColor = Color.DarkGray;
         }
 
         protected sealed override void UpdateTrapState()
         {
-            System.Console.WriteLine("Updating trap state...");
+            if (timeOnTrap > 1f)
+            {
+                isDamaging = true;
+            }
+            else
+            {
+                isDamaging = false;
+            }
         }
+
+        protected sealed override void DealDamage()
+        {
+
+            GameStateSingleton.getInstance().DealDamageToPlayer(30);
+            timeOnTrap = 0;
+        }
+
+
     }
-	
+
 }

@@ -22,6 +22,22 @@ namespace GameClient
             Player2 = new Player();
         }
 
+        public void DealDamageToPlayer(int dmg)
+        {
+            System.Console.Write(Player1.Health + " ");
+            if (ClientID == 1)
+            {
+                Player1.TakeDamage(dmg);
+            }
+            if (ClientID == 2)
+            {
+                Player2.TakeDamage(dmg);
+            }
+            System.Console.Write(Player1.Health);
+            System.Console.WriteLine();
+
+        }
+
         public static GameStateSingleton getInstance()
         {
             lock (padlock)
