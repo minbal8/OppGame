@@ -95,10 +95,10 @@ namespace GameClient
 
             if (animation2 != lastAnimanion2)
             {
-                if (animation1 == 0) player2State = player2State.ChangeState(0);
-                if (animation1 == 1) player2State = player2State.ChangeState(1);
-                if (animation1 == 2) player2State = player2State.ChangeState(2);
-                if (animation1 == 3) player2State = player2State.ChangeState(3);
+                if (animation2 == 0) player2State = player2State.ChangeState(0);
+                if (animation2 == 1) player2State = player2State.ChangeState(1);
+                if (animation2 == 2) player2State = player2State.ChangeState(2);
+                if (animation2 == 3) player2State = player2State.ChangeState(3);
 
                 player2PictureBox.Image = player2State.stateImage;
             }
