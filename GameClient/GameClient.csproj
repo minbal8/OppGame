@@ -58,6 +58,8 @@
     <Compile Include="Patterns\ChainOfResponsibility\ReturnToLevelHandler.cs" />
     <Compile Include="Patterns\Composite\LevelComposite.cs" />
     <Compile Include="Patterns\Composite\LevelComposition.cs" />
+    <Compile Include="Patterns\Memento\Caretaker.cs" />
+    <Compile Include="Patterns\Memento\Memento.cs" />
     <Compile Include="Patterns\Proxy\RealClient.cs" />
     <Compile Include="OnlineCommunication\ValveSync.cs" />
     <Compile Include="Patterns\Adapter\MapObjectAdapter.cs" />
@@ -171,7 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GeneratedCode\" />
-    <Folder Include="Patterns\Memento\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocketServer\SocketServer.csproj">

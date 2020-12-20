@@ -328,6 +328,22 @@ namespace GameClient
             //CompositeTest();
             //MediatorTest();
             ChainOfResponsibility();
+            MementoTest();
+        }
+
+        private void MementoTest()
+        {
+            Level level = new Level("Easy level");
+            level.State = "Not completed";
+            //Console.WriteLine("Set level state to not completed");
+
+            Caretaker caretaker = new Caretaker();
+            caretaker.Memento = level.CreateMemento();
+
+            level.State = "Completed";
+            //Console.WriteLine("Set level state to completed");
+
+            level.SetMemento(caretaker.Memento);
         }
 
         private void VisitorTest()
