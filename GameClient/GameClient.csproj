@@ -130,6 +130,9 @@
     <Compile Include="Patterns\Observer\Valve.cs" />
     <Compile Include="Patterns\Builder\Wall.cs" />
     <Compile Include="Patterns\State\PlayerAnimator.cs" />
+    <Compile Include="Patterns\Visitor\SpectatorVisitor.cs" />
+    <Compile Include="Patterns\Visitor\PlayerVisitor.cs" />
+    <Compile Include="Patterns\Visitor\Visitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -165,10 +168,7 @@
     <Folder Include="GeneratedCode\" />
     <Folder Include="Patterns\ChainOfResponsibility\" />
     <Folder Include="Patterns\Composite\" />
-    <Folder Include="Patterns\Interpreter\" />
-    <Folder Include="Patterns\Mediator\" />
     <Folder Include="Patterns\Memento\" />
-    <Folder Include="Patterns\Visitor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocketServer\SocketServer.csproj">

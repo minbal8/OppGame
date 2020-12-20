@@ -97,14 +97,14 @@ namespace GameClient
             if (e.KeyCode == Keys.W) { PressedUp = false; }
             if (e.KeyCode == Keys.S) { PressedBottom = false; }
             if (e.KeyCode == Keys.E) { PressedE = false; }
-            if (e.KeyCode == Keys.NumPad1) { secondChar = ""; }
-            if (e.KeyCode == Keys.NumPad2) { secondChar = ""; }
-            if (e.KeyCode == Keys.NumPad3) { secondChar = ""; }
-            if (e.KeyCode == Keys.NumPad4) { secondChar = ""; }
-            if (e.KeyCode == Keys.Z) { firstChar = ""; }
-            if (e.KeyCode == Keys.X) { firstChar = ""; }
-            if (e.KeyCode == Keys.C) { firstChar = ""; }
-            if (e.KeyCode == Keys.V) { firstChar = ""; }
+            if (e.KeyCode == Keys.NumPad1) { firstChar = ""; }
+            if (e.KeyCode == Keys.NumPad2) { firstChar = ""; }
+            if (e.KeyCode == Keys.NumPad3) { firstChar = ""; }
+            if (e.KeyCode == Keys.NumPad4) { firstChar = ""; }
+            if (e.KeyCode == Keys.Z) { secondChar = ""; }
+            if (e.KeyCode == Keys.X) { secondChar = ""; }
+            if (e.KeyCode == Keys.C) { secondChar = ""; }
+            if (e.KeyCode == Keys.V) { secondChar = ""; }
 
         }
         private void GetMovementValues()
