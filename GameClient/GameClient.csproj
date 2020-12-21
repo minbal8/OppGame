@@ -58,6 +58,10 @@
     <Compile Include="Patterns\ChainOfResponsibility\ReturnToLevelHandler.cs" />
     <Compile Include="Patterns\Composite\LevelComposite.cs" />
     <Compile Include="Patterns\Composite\LevelComposition.cs" />
+    <Compile Include="Patterns\Iterator\ButtonAggregator.cs" />
+    <Compile Include="Patterns\Iterator\ButtonIterator.cs" />
+    <Compile Include="Patterns\Iterator\WallAggregator.cs" />
+    <Compile Include="Patterns\Iterator\WallIterator.cs" />
     <Compile Include="Patterns\Memento\Caretaker.cs" />
     <Compile Include="Patterns\Memento\Memento.cs" />
     <Compile Include="Patterns\Proxy\RealClient.cs" />

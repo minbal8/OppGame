@@ -18,26 +18,40 @@ namespace GameClient
 
         public void DrawLevel(ControlCollection controls)
         {
-
-            foreach (var item in walls)
+            WallIterator wallIterator = new WallIterator(walls);
+            while (wallIterator.HasNext())
+            {
+                controls.Add(wallIterator.Next().image);
+            }
+            /*foreach (var item in walls)
             {
                 controls.Add(item.image);
-            }
+            }*/
 
-            foreach (var item in traps)
+            TrapIterator trapIterator = new TrapIterator(traps);
+            while (trapIterator.HasNext())
+            {
+                controls.Add(trapIterator.Next().picture);
+            }
+            /*foreach (var item in traps)
             {
                 controls.Add(item.picture);
-            }
+            }*/
 
             foreach (var item in valves)
             {
                 controls.Add(item.image);
             }
 
-            foreach (var item in buttons)
+            ButtonIterator buttonIterator = new ButtonIterator(buttons);
+            while (buttonIterator.HasNext())
+            {
+                controls.Add(buttonIterator.Next().image);
+            }
+            /*foreach (var item in buttons)
             {
                 controls.Add(item.image);
-            }
+            }*/
 
         }
     }
